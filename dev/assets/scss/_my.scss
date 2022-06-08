@@ -1,0 +1,560 @@
+@charset "utf-8";
+@import 'config';
+@import 'purchase';
+//url
+$url-images: "../images/my/";
+//var
+$width: px(1754);
+$height-contents: px(945);
+$height-tab-contents: px(836);
+$height-product: px(286);
+$height-list-box: px(208);
+$margin-bottom: px(37);
+$padding: px(9);
+
+/* 공통 영역 */
+//공지메세지
+.noti-message {
+    position: absolute;
+    top: px(60);
+    right: px(87);
+    font-size: 3rem;
+    color: $color-gray;
+}
+//목록있는 콘텐츠
+.my-contents {
+    height: 100%; 
+    padding-top: px(126);  
+    background-color: $color-bg-contents;
+    //목록 콘텐츠
+    .list-contents-wrap {
+        overflow: hidden;
+        width: calc(#{$width} + #{$padding} * 2);
+        height: calc(#{$height-contents} + #{$padding});
+        margin: 0 auto;
+        ul {
+            width: $width;
+            margin: 0 auto;
+            padding-top: $padding;
+            li {
+                margin: 0 auto $margin-bottom;
+            }
+        }
+    }
+    //탭 콘텐츠
+    .tap-contents-wrap {
+        width: $width;
+        height: 100%;
+        margin: 0 auto;
+        padding-top: $padding;
+    }
+    .tab-contents {       
+        overflow: hidden;
+        width: calc(#{$width} + #{$padding} * 2);
+        height: calc(#{$height-tab-contents} + #{$padding});
+        margin-left: -#{$padding};
+        padding-right: 0;
+        ul {
+            padding: $padding;
+            li {
+                margin-bottom: $margin-bottom;
+            }
+        }
+        .scroll {
+            top: px(235);
+            height: calc(#{$height-tab-contents} + #{$padding});
+        }
+    }
+    .active {
+        .focus {
+            button {
+                background-color: $color-primary;
+            }
+        }
+    }
+    .product {
+        width: $width;
+        height: $height-product;
+        padding: 0 px(30);
+        border-radius: px(15);
+        .product-image {
+            $size: px(238);
+            width: $size;
+            height: $size;
+            margin-right: px(30);
+        }
+    }
+    .product-info {
+        > p {
+            font-size: 2.8rem;
+        }
+        h4 {
+            margin-bottom: px(10);
+            font-size: 3.8rem;
+        }
+    }
+    .ic-tag {
+        @include ic-tag($height: px(45), $text-color: $color-pure-white, $bg-color: $color-black-30);
+        width: px(133);
+        margin-right: px(13);
+        font-size: 2.4rem;
+        box-shadow: unset;
+    }
+    .button-area {
+        position: absolute;
+        top: px(115);
+        right: px(63);
+        button {
+            width: px(331);
+            height: px(55);
+            p {
+                font-size: 2.4rem;
+            }
+        }
+        
+    } 
+    .scroll {
+        @include scroll($top: px(135), $right: px(24), $width: px(9), $height: $height-contents);
+        border-radius: 0;
+        span {
+            border-radius: 0;
+        }
+    }
+}
+//목록없는 콘텐츠
+.empty-contents {
+    @include flex-items-center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: $color-bg-contents;
+    em {
+        margin-bottom: px(20);
+        font: {
+            family: $font-bold;
+            size: 4.5rem;
+        }
+    }
+    > p {
+        margin-bottom: px(120);
+        font-size: 2.7rem;
+        &.ic-delivery {
+            &::before {
+                @include vs-ib;
+                width: px(47);
+                height: px(31);
+                margin-right: px(13);
+                vertical-align: middle;
+                background-image: url($url-images + "ic-my-delivery.png");
+                @include background-default;
+            }
+        }
+    }
+    .button-area {
+        position: unset;
+        button {
+            @include button($width: px(300), $height: px(88));
+            &.bring-info {
+                width: px(368);
+            }
+            & + button {
+                margin-left: px(23);
+            }
+        }
+    }
+}
+
+/* 마이-주문 내역 */
+.my-order-list {
+    .product-info {
+        .option-item {
+            opacity: 1;
+            font-size: 3rem;
+            color: $color-pure-white;
+        }
+        .price-info {
+            .sale-price {
+                margin-left: px(17);
+            }
+        }
+    }
+}
+
+/* 주문/배송조회 상세 화면 */
+.my-order-detail {
+    @extend .purchase-complet;
+    .order-info {
+        @extend .purchase-info;
+        height: px(921);
+        padding-top: px(102);
+    }
+    .order-header {
+        @extend .purchase-header;
+        padding-bottom: px(43);
+        > p {
+            display: inline-block;
+            margin-bottom: 0;
+            font-size: 3.5rem;
+        }
+        .order-date {
+            margin-right: px(15);
+            font-family: $font-regular;
+        }
+    }
+    .contents {
+        padding-top: px(38);
+        .order-info-list {
+            @extend .purchase-info-list;
+            padding: 0 px(13);
+            .order-number {
+                margin-bottom: px(35);
+            }
+            .order-product {
+                margin-bottom: px(20);
+            }
+            .address-info {
+                margin-bottom: px(38);
+            }
+            .total {
+                margin-top: px(73);
+                &::before {
+                    margin-top: px(-30);
+                }
+            }
+            .guide-message {
+                align-items: flex-start;
+                flex-direction: column;
+                margin-top: px(30);
+                p {
+                    width: 100%;
+                    margin-bottom: px(4);
+                    font-size: 2.4rem;
+                    color: $color-sub-gray;
+                    &.sub-text {
+                        font-size: 2rem;
+                        color: rgba($color-gray, 0.9);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 마이-찜한상품 */
+.my-favorite-list {
+    .product-info {
+        h4 {
+            margin-bottom: px(56);
+        }
+        .button-area {
+            width: px(331);
+        }
+    }
+}
+
+/* 마이-알람목록 */
+.my-alarm-list {
+    .product {
+        h4{
+            width: px(874);
+            margin-top: px(20);
+            margin-bottom: 0;
+        }
+        .ic-tag {
+            vertical-align: middle;
+        } 
+        .date {
+            opacity: 1;
+            font: {
+                family: $font-regular;
+                size: 3rem;
+            }
+            color: $color-pure-white;
+        }
+        .sub-text {
+            width: px(570);
+            margin-top: px(18);
+            margin-bottom: 0;
+            font: {
+                family: $font-regular;
+                size: 3.1rem;
+            }
+            opacity: 0.8;
+            color: $color-white;
+        }
+    }
+    .active {
+        .focus {
+            .sub-text {
+                opacity: 1;
+                color: $color-accent;
+            }
+        }
+    }
+}
+
+/* 마이-공지사항 */
+.my-notice-list {
+    li {
+        position: relative;
+        @include flex-items-center;
+        width: $width;
+        height: $height-list-box;
+        padding: 0 px(70);
+        border-radius: px(9);
+        font-family: $font-bold;
+        color: $color-gray;
+        background-color: $color-sub-light-black;
+        h4 {
+            width: px(1240);
+            font-size: 3.6rem;
+            @include ellipsis;
+        }
+        .date {
+            margin-left: auto;
+            font-size: 2.7rem;
+            color: $color-gray-90;
+        }
+    }
+    .active {
+        .focus {
+            color: $color-pure-white;
+            &::after {
+                @include focus-border;
+            }
+            p {
+                color: $color-white-80;
+            }
+        }
+    }
+}
+
+/* 마이-서비스약관 */
+.my-terms {
+    @extend .my-notice-list;
+    .active {
+        .focus {
+            h4 {
+                font-size: 4.5rem;
+            }
+        }
+    }
+}
+
+/* 마이-faq목록 */
+.my-faq-list {
+    .faq-list {
+        li {
+            position: relative;
+            @include flex-items-center;
+            width: $width;
+            height: $height-list-box;
+            padding: 0 px(70);
+            border-radius: px(9);
+            font-family: $font-bold;
+            color: $color-gray;
+            background-color: $color-sub-light-black;
+            .ic-tag {
+                margin-right: px(20);
+            }
+            h4 {
+                width: px(1240);
+                font-size: 3.6rem;
+                @include ellipsis;
+            }
+        }
+        &.active {
+            .focus {
+                color: $color-pure-white;
+                &::after {
+                    @include focus-border;
+                }
+            }
+        }
+    }
+    .empty-contents {
+        justify-content: flex-start;
+        padding-top: px(265);
+    }
+}
+
+/* 마이-정보관리 */
+.my-info-list {
+    .tab-contents {
+        li {
+            position: relative;
+            @include flex-items-center;
+            border-radius: px(9);
+            background-color: $color-sub-light-black; 
+        }
+    }
+    .empty-contents {
+        justify-content: flex-start;
+        padding-top: px(136);
+    }
+    //배송지관리
+    .address-info {
+        .address-list {
+            li {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                height: $height-product;
+                padding: 0 px(63);
+                > p {
+                    font-size: 3.6rem;
+                    color: $color-white;
+                    &.phone-number {
+                        margin-left: px(6);
+                        font-size: 3.3rem;
+                    }
+                    &.address {
+                        width: 100%;
+                        height: px(96);
+                        margin-top: px(23);
+                        padding-right: px(467);
+                        @include ellipsis($line:2);
+                    }
+                }
+            }
+            .add-button {   
+                height: px(117);
+                padding: 0;
+                background-color: unset;
+                .button-area {
+                    position: unset;
+                    width: 100%;
+                    button {
+                        flex: 1;
+                        position: relative;
+                        height: px(117);
+                        border-radius: px(9);
+                        background-color: $color-sub-light-black;
+                        & + button {
+                            margin-left: px(32);
+                        }
+                        p, i {
+                            font: {
+                                family: $font-bold;
+                                size: 3.6rem;
+                            }
+                            color: $color-white-60;
+                        }
+                        .ic-plus {
+                            &::before {
+                                @include vs-ib;
+                                width: px(30);
+                                height: px(30);
+                                margin-right: px(33);
+                                opacity: 0.6;
+                                background-image: url($url-images + "ic-my-plus.png");
+                                @include background-default;
+                            }
+                        }
+                    }
+                    &.active {
+                        .focus {
+                            &::after {
+                                @include focus-border;
+                            }
+                            p, i {
+                                color: $color-pure-white;
+                            }
+                            .ic-plus {
+                                &::before {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //카드관리
+    .card-info {
+        .card-list {
+            $width: px(802);
+            $height: px(78);
+            $margin-right: px(52);
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(#{$width} * 2 + #{$margin-right});
+            margin: 0 auto;
+            padding: px(5) 0;
+            li {
+                flex-direction: column;
+                width: $width;
+                height: px(345);
+                margin-right: $margin-right;
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+                h4 {
+                    width: 100%;
+                    height: $height;
+                    margin-top: px(50);
+                    line-height: $height;
+                    text-align: center;
+                    font: {
+                        family: $font-bold;
+                        size: 3.6rem;
+                    }
+                    background-color: $color-light-black;
+                }
+                .card-number {
+                    margin-top: px(15);
+                    font: {
+                        family: $font-bold;
+                        size: 4.2rem;
+                    }
+                    color: $color-white-80;
+                }
+                .button-area {
+                    position: unset;
+                    margin-top: px(52);
+                }
+            }
+            .add-button {
+                background-color: $color-bg-contents;
+                &::before {
+                    @include vs;
+                    top: px(-5);
+                    left: px(-5);
+                    width: px(812);
+                    height: px(355);
+                    background-image: url($url-images + "img-my-dash-line.png");
+                    @include background-default;
+                }
+                h4 {
+                    background-color: unset;
+                }
+                > p {
+                    margin-top: px(3);
+                    text-align: center;
+                    font: {
+                        family: $font-regular;
+                        size: 2.7rem;
+                    } 
+                    color: $color-white-50;
+                }
+            }
+        }
+        .noti-message {
+            position: unset;
+            margin: px(-14) px(50) 0;
+            font-size: 2.4rem;
+            color: $color-gray;
+        }
+        .empty-contents {
+            > p {
+                margin-bottom: px(12);
+            }
+            .sub-text {
+                margin-bottom: px(73);
+                font-size: 2.4rem;
+                color: $color-gray;
+            }
+        }
+    }
+}

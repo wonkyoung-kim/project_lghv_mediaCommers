@@ -1,0 +1,740 @@
+@charset "utf-8";
+@import 'config';
+$popup-header-height: px(98);
+$popup-footer-height: px(102);
+$popup-padding-top: px(46);
+$popup-padding-bottom: px(56);
+
+/* 팝업 공통 */
+.popup-container {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg-dimmed;
+    .popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        border-radius: px(15);
+        box-shadow: 0 px(5) px(15) 0 rgba($color-black, 0.3);
+        background-color: $color-white;
+        &.small {
+            width: px(579);
+        }
+        &.middle {
+            width: px(1125);
+        }
+    }
+    .popup-header {
+        @include flex-items-center;
+        justify-content: center;
+        height: $popup-header-height;
+        padding: 0 px(60);
+        border-bottom: px(2) solid rgba($color-sub-line, .3);
+        h3 {
+            font: {
+                family: $font-bold;
+                size: 3.8rem;
+            }
+            color: $color-black;
+            @include ellipsis;
+        }
+    }
+    .popup-body {
+        position: relative;
+        padding: $popup-padding-top px(60) $popup-padding-bottom;
+        font-size: 3.3rem;
+        line-height: 1.36;
+        color: $color-black;
+        em {
+            font-family: $font-bold;
+        }
+        &.text-center {
+            text-align: center;
+        }
+        &.one-line {
+            @include flex-items-center;
+            justify-content: center;
+            min-height: px(186);
+        }
+        &.active {
+            .scroll {
+                opacity: 1;
+            }
+        }
+    }
+    .scroll-contents {
+        position: relative;
+        overflow: hidden;
+        width: px(1005);
+        height: px(318);
+        margin: 0 auto;
+        padding: 0 px(10) 0 px(23);
+        line-height: 1.5;
+        text-align: left;
+        &.top-cover {
+            &::before {
+                height: px(77);
+            }
+        }
+        &.bottom-cover {
+            &::after {
+                height: px(77);
+            }
+        }
+        &.high-height {
+            height: px(474);
+        }
+        .image {
+            margin-top: px(20);
+        }
+    }
+    .top-cover {
+        &::before {
+            @include vs;
+            z-index: 1;
+            width: 100%;
+            height: px(150);
+            border-radius: px(15);
+            background-image: linear-gradient(to top, $color-bg-transparent, $color-white);
+        }
+    }
+    .bottom-cover {
+        &::after {
+            @include vs;
+            top: unset;
+            bottom: px(-1, -1);
+            width: 100%;
+            height: px(150);
+            border-radius: px(15);
+            background-image: linear-gradient(to bottom, $color-bg-transparent, $color-white);
+        }
+    }
+    .body-text {
+        font-size: 3rem;
+        & + .body-text {
+            margin-top: px(25);
+        }
+        & + .sub-text {
+            margin-top: px(10);
+        }
+    }
+    .sub-text {
+        font-size: 2.7rem;
+        color: #999;
+    }
+    .highlight {
+        color: $color-primary;
+    }
+    .error-message {
+        margin-top: px(23);
+        font-size: 2.7rem;
+        color: $color-primary;
+        opacity: 0;
+        &.on {
+            opacity: 1;
+        }
+    }
+    .essential {
+        font-size: 2.3rem;
+        &::before {
+            content: '*';
+            margin-right: px(7);
+            color: $color-primary;
+        }
+    }
+    .scroll {
+        @include scroll($top: px(45), $right: px(30), $width: px(6), $height: calc(100% - (#{$popup-padding-top} + #{$popup-padding-bottom})), $color1: $color-gray-15, $color2: $color-gray-30);
+        opacity: 0;
+    }
+    .popup-footer {
+        display: flex;
+        height: $popup-footer-height;
+        border: {
+            bottom-right-radius: px(15);
+            bottom-left-radius: px(15);
+        }
+        overflow: hidden;
+        .popup-button {
+            position: relative;
+            flex: 1;
+            font: {
+                size: 3.4rem;
+                family: $font-bold;
+            }
+            color: $color-dark-black;
+            background-color: $color-sub-gray;
+            & + .popup-button {
+                &::after {
+                    @include vs;
+                    left: px(-2);
+                    top: px(21);
+                    right: unset;
+                    width: px(4);
+                    height: px(60);
+                    border-radius: px(1);
+                    background-color: rgba($color-light-gray, .2);
+                }
+            }
+            &.dimmed {
+                color: $color-sub-dark-gray;
+            }
+        }
+        &.active {
+            .popup-button {
+                &.focus {
+                    background-color: $color-primary;
+                    color: $color-pure-white;
+                }
+                &.focus+.popup-button::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/* 토스트팝업 */
+.toast-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &::after {
+        @include vs;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: px(511);
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, $color-bg-toast-dimmed);
+    }
+    .popup-toast {
+        position: absolute;
+        left: 50%;
+        bottom: px(90);
+        transform: translateX(-50%);
+        z-index: 20;
+        display: inline-block;
+        min-width: px(855);
+        max-width: px(1800);
+        padding: px(54) px(68);
+        text-align: center;
+        font-size: 3.7rem;
+        color: $color-black;
+        box-shadow: 0 px(5) px(15) 0 $color-black-30;
+        border-radius: px(15);
+        background-color: #eee;
+        p {
+            line-height: px(49);
+            word-break: keep-all;            
+            @include ellipsis;
+        }
+        .title, em {
+            font-family: $font-bold;
+        }
+        &.limit-2 {
+            padding: px(30) px(68);
+        }
+    }
+}
+
+/* 약관동의 공통팝업 */
+.terms-popup {
+    .popup-body {
+        .body-text {
+            margin-top: px(27);
+            font-size: 2.5rem;
+        }
+        .scroll-contents {
+            position: relative;
+            overflow: unset;
+            width: px(1017);
+            height: px(255);
+            padding: px(20) px(23);
+            line-height: 1.44;
+            border: px(1,1) solid $color-gray;
+            border-radius: px(8);
+            background-color: rgba($color-sub-gray, 0.46);
+            .terms {
+                overflow: hidden;
+                width: px(950);
+                height: px(213);
+                text-align: left;
+                .title {
+                    margin-bottom: px(20);
+                    font: {
+                        family: $font-bold;
+                        size: 2.8rem;
+                    }
+                }
+                .body-text {
+                    font-size: 2.5rem;
+                    & + .body-text {
+                        margin-top: px(20);
+                    }
+                }
+            }
+            .scroll {
+                top: px(27);
+                right: px(18);
+                height: px(201);
+            }
+        }
+        &.active {
+            .scroll-contents {
+                &.focus {
+                    &::after {
+                        @include focus-border;
+                    }
+                }
+            }
+            .scroll {
+                opacity: 1;
+            }
+        }
+    }
+    
+    .address-terms-popup {
+        .popup-body {
+            padding: px(40) px(50) px(45);
+            .scroll-contents {
+                height: px(208);
+                .terms {
+                    width: px(960);
+                    height: px(161);
+                    .body-text {
+                        margin-bottom: px(10);
+                        line-height: 1.52;
+                        & + .body-text {
+                            margin-top: 0;
+                        }
+                    }
+                }
+                .scroll {
+                    top: px(24);
+                    right: px(12);
+                    height: px(161);
+                }
+            }
+        }
+        .body-text {
+            margin-top: 0;
+            margin-bottom: px(25);
+            font-size: 2.7rem;
+        }
+        .sub-text {
+            margin-top: px(20);
+            line-height: 1.57;
+            font-size: 2.3rem;
+            color: $color-dark-gray;
+        }
+    }
+}
+
+/* 모바일입력 공통 팝업 */
+.mobile-popup {
+    .popup-body {
+        .body-text {
+            white-space: nowrap;
+        }
+        .sub-text {
+            margin-bottom: px(50);
+        }
+        > .essential {
+            margin-right: px(25);
+            margin-bottom: px(11);
+            text-align: right;
+        }
+        label {
+            font-size: 2.7rem;
+        }
+    }
+}
+
+/* 카드등록 공통 팝업 */
+.addcard-popup {
+    .popup-body {
+        > p {
+            margin-bottom: px(45);
+        }
+        .input-text {
+            width: px(180);
+            margin-right: px(9);
+        }
+        .birth-date {
+            .input-text {
+                width: px(368);
+            }
+        }
+    }   
+}
+
+/* 이미지, 텍스트 들어가는 공통팝업 */
+.scrollbox-popup {
+    .scroll-contents {
+        .image {
+            margin-bottom: px(20);
+        }
+    }
+    .sub-text {
+        color: $color-black;
+        & + .body-text {
+            margin-top: px(10);
+        }
+    }
+}
+
+/* 홈 */
+//상품정렬 팝업 
+.home-sorting-option {
+    .popup-header {
+        display: none;
+    }
+    .popup-body {
+        padding: px(58) 0;
+    }
+    ul {
+        width: px(454);
+        margin: 0 auto;
+        li {
+            height: px(98);
+            margin-bottom: px(10);
+            line-height: px(98);
+            font: {
+                family: $font-bold;
+                size: 3.3rem;
+            }
+            color: $color-black;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .active {
+        .focus {
+            border-radius: px(8);
+            background-color: $color-primary;
+            color: $color-pure-white;
+            box-shadow: 0 px(3) px(6) 0 rgba($color-black, 0.5);
+        }
+    }
+}
+
+/* 구매 */
+//url
+$url-images: "../images/purchase/";
+//주문방법선택팝업
+.purchase-order-popup {
+    .popup-body {
+        padding: px(62) px(75) px(92);
+    }
+    .body-text {
+        margin-bottom: px(45);
+    }
+    .purchase-order-list {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        li {
+            &::before {
+                @include vs;
+                left: 50%;
+                transform: translateX(-50%);
+                width: px(3);
+                height: px(120);
+                background-color: rgba($color-light-gray, 0.2);
+            }
+            &:first-child {
+                &::before {
+                    content: unset;
+                }
+            }
+        }
+        button {
+            @include button($width: px(435), $height: px(120));
+            background-color: $color-bg-button;
+            i {
+                @include flex-items-center;
+                justify-content: center;
+                &::before {
+                    margin-right: px(14);
+                }
+                &.ic-tv {
+                    &::before {
+                        width: px(49);
+                        height: px(48);
+                        background-image: url($url-images + "ic-purchase-tv.png");
+                    }
+                }
+                &.ic-mobile {
+                    &::before {
+                        width: px(50);
+                        height: px(71);
+                        background-image: url($url-images + "ic-purchase-mobile.png");
+                    }
+                }
+            }
+        }
+        p {
+            margin-top: px(20);
+            font-size: 2.4rem;
+            color: $color-subtext-gray;   
+        }
+        &.active {
+            li {
+                &.focus {
+                    button {
+                        background-color: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+//결제수단선택 팝업
+.purchase-payment-popup {
+    @extend .purchase-order-popup;
+    .popup-body {
+        padding: px(90) px(75) px(75);
+    }
+    .purchase-payment-list {
+        @extend .purchase-order-list;
+        button {
+            margin-bottom: 0;
+            .ic-card {
+                &::before {
+                    width: px(105);
+                    height: px(69);
+                    background-image: url($url-images + "ic-purchase-card.png");
+                }
+            }
+            .ic-bill {
+                &::before {
+                    width: px(52);
+                    height: px(59);
+                    background-image: url($url-images + "ic-purchase-bill.png");
+                }
+            }
+        }
+        &.active {
+            .focus {
+                .ic-card {
+                    &::before {
+                        background-image: url($url-images + "ic-purchase-card-focus.png");
+                    }
+                }
+            }
+        }
+        p {
+            margin-top: px(5);
+            text-align: left;
+            color: $color-black;
+            span {
+                color: $color-primary;
+                em {
+                    margin: 0 px(3);
+                    vertical-align: middle;
+                    font: {
+                        family: $font-bold;
+                        size: 3.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+//상품수량선택 팝업
+.purchase-quantity-popup {
+    .popup-body {
+        padding: px(50) px(60) px(60);
+    }
+    .body-text {
+        margin-bottom: px(47);
+    }
+    .button-area {
+        flex-direction: column;
+        p {
+            margin-top: px(28);
+            font-size: 2.4rem;
+            color: $color-subtext-gray;
+        }
+    }
+    .quantity-button {
+        @include flex-items-center;
+        justify-content: space-between;
+        width: px(405);
+        height: px(150);
+        margin: 0 auto;
+        padding: 0 px(57);
+        border-radius: px(7);
+        box-shadow: 0 px(3) px(6) 0 rgba(0, 0, 0, 0.5);
+        background-color: $color-bg-button;
+        .ic-arrow {
+            width: px(27);
+            height: px(43);
+            font-size: 0;
+            background-image: url($url-images + "ic-purchase-arrow.png");
+            @include background-default;
+            &.prev {
+                transform: rotate(180deg);
+            }
+        }
+        .quantity {
+            overflow: hidden;
+            width: px(160);
+            font: {
+                family: $font-bold;
+                size: 6rem;
+            }
+        }
+        &.focus {
+            color: $color-pure-white;
+            background-color: $color-primary;
+        }
+    }
+}
+//상품옵션선택 팝업
+.purchase-option-popup {
+    $height-option-item: px(150);
+    $width-shadow: px(6);
+    .popup-body {
+        padding: px(52) 0 0;
+    }
+    .option-list-wrap {
+        overflow: hidden;
+        width: px(1005);
+        height: calc(#{$height-option-item} * 2 + #{px(53)});
+        margin: 0 auto;
+        ul {
+            padding: 0 $width-shadow;
+            li {
+                @include flex-items-center;
+                position: relative;
+                height: $height-option-item;
+                padding: 0 px(40);
+                p {
+                    font-family: $font-bold;
+                    @include ellipsis;
+                }
+                &.sold-out {
+                    p {
+                        color: $color-gray;
+                    }
+                }
+            }
+            .option-product-list {
+                p {
+                    width: px(896);
+                }
+            }
+            &.active {
+                .focus {
+                    &::after {
+                        @include vs;
+                        width: 100%;
+                        height: $height-option-item;
+                        border-radius: px(7);
+                        background-color: $color-primary;
+                        box-shadow: 0 px(3) $width-shadow 0 rgba($color-black, 0.5);
+                    }
+                    p {
+                        position: relative;
+                        z-index: 1;
+                        color: $color-pure-white;
+                    }
+                }
+            }
+        }
+    }
+    .scroll {
+        top: px(52);
+        height: px(300);
+        opacity: 1;
+    }
+}
+//카드변경 팝업
+.option-card-popup {
+    $height-option-item: px(150);
+    @extend .purchase-option-popup;
+    .option-list-wrap {
+        height: px(578);
+    }
+    .ic-tag {
+        position: relative;
+        z-index: 1;
+        @include ic-tag;
+        line-height: px(54);
+        border: none;
+    }
+    .scroll {
+        height: px(508);
+    }
+}
+//배송지변경 팝업
+.option-address-popup {
+    $height-option-item: px(237);
+    @extend .option-card-popup;
+    .option-list-wrap {
+        height: px(577);
+        .option-address-list {
+            li {
+                flex-wrap: wrap;
+                align-items: baseline;
+                align-content: flex-start;
+                height: $height-option-item;
+                padding-top: px(30);
+                .name, .phone-number {
+                    font-size: 3.3rem;
+                    vertical-align: middle;
+                }
+                .name {
+                    margin-right: px(30);
+                }
+                .address {
+                    height: px(87);
+                    margin-top: px(25);
+                    font-family: $font-regular;
+                    @include ellipsis($line: 2);
+                }
+            }
+            &.active {
+                .focus {
+                    &::after {
+                        height: $height-option-item;
+                    }
+                    .address {
+                        font-family: $font-bold;
+                    }
+                }
+            }
+        }
+    }
+    .scroll {
+        top: px(67);
+        height: px(508);
+    }
+}
+//결제비밀번호입력 팝업
+.purchase-auth-popup {
+    .popup-body {
+        padding: px(45) px(60) px(35);
+    }
+    .body-text {
+        margin-top: px(15);
+    }
+    .input-password {
+        @include input-password;
+        margin-top: px(35);
+    }
+}
+//에러 팝업
+.error-popup {
+    .body-text {
+        & + .sub-text {
+            margin-top: px(25);
+        }
+    }
+}

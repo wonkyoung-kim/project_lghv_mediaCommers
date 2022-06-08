@@ -1,0 +1,387 @@
+/* variables */
+$font-regular: 'Yoon Gothic 700 50', 'Yoon Gothic 750', 'YoonGothicPro750', 'Yoon 윤고딕 750';
+$font-bold: 'Yoon Gothic 700 70', 'Yoon Gothic 770', 'YoonGothicPro770', 'Yoon 윤고딕 770';
+$color-primary: #e50914;
+$color-accent: #ffce22;
+$color-white: #eee;
+$color-pure-white: #fff;
+$color-white-10: rgba($color-pure-white, 0.1);
+$color-white-20: rgba($color-pure-white, 0.2);
+$color-white-50: rgba($color-pure-white, 0.5);
+$color-white-60: rgba($color-pure-white, 0.6);
+$color-white-80: rgba($color-pure-white, 0.83);
+$color-orange: #fd8a2c;
+$color-blue: #3174ff;
+$color-gray: #a9a9a9;
+$color-gray-15: rgba($color-gray, 0.15);
+$color-gray-30: rgba($color-gray, 0.3);
+$color-gray-60: rgba($color-gray, 0.6);
+$color-gray-90: rgba($color-gray, 0.9);
+$color-gray-divider: rgba(#d8d8d8, 0.5);
+$color-dark-gray: #555;
+$color-light-gray: #777;
+$color-black: #000;
+$color-black-30: rgba($color-black, 0.3);
+$color-black-40: rgba($color-black, 0.4);
+$color-black-70: rgba($color-black, 0.7);
+$color-light-black: #1d1e32;
+$color-dark-black: #080d19;
+$color-sub-white: #e6e6e6;
+$color-sub-line:#b7b5bd;
+$color-sub-dark-gray: #999;
+$color-sub-black:#10101b;
+$color-sub-light-black: #2a2b3d;
+$color-sub-gray:#ddd;
+$color-sub-light-gray: #d6d6d6;
+$color-input-border: #d6d6d6;
+$color-bg-aside:#161924;
+$color-bg-component: #2a2c3e;
+$color-bg-contents: #14151e;
+$color-bg-button: #676c84;
+$color-bg-table: #1c1d27;
+$color-bg-row: #14151e;
+$color-bg-select: #2b2c34;
+$color-line-gray: #565656;
+$color-line-table: #494949;
+$color-button-shadow: rgba(0, 0, 0, 0.43);
+$color-bg-transparent: rgba($color-black, 0);
+$color-bg-dimmed: rgba($color-black, 0.67);
+$color-bg-button-dimmed: #191924;
+$color-bg-toast-dimmed: rgba(45, 47, 64, 0), #14151e 50%;
+$color-tooltip-text: #cbcbcb;
+$color-keyguide-green: #98c21f;
+$color-subtext-gray: #595959;
+$color-bg-list-dimmed: #d9d9d9;
+$color-arrow: #979797;
+
+$resolution: 'FHD' !default;
+
+/* functions */
+@function px($fhd, $hd: null) {
+    @if $resolution=='FHD' {
+        @return #{$fhd}px;
+    }
+    @if $resolution=='HD' {
+        @if $hd {
+            @return #{$hd}px;
+        }
+        @else {
+            @return #{floor($fhd * 0.667)}px;
+        }
+    }
+    @return #{$fhd}px;
+}
+
+/* mixins */
+@mixin ellipsis($line: 1) {
+    overflow: hidden;
+    @if $line==1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    @else {
+        display: -webkit-box;
+        white-space: normal;
+        /* autoprefixer: ignore next */
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+    }
+}
+/* 포커스라인 */
+@mixin focus-border {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: px(9);
+    box-shadow: 0 0 0 px(9) $color-primary;
+}
+/* vs */
+@mixin vs {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top: 0;
+    left: 0;
+}
+@mixin vs-ib {
+    display: inline-block;
+    content: '';
+}
+/* background-default */
+@mixin background-default {
+    background: {
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+@mixin background-contain {
+    background: {
+        size: contain;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+/* flex-items-center */
+@mixin flex-items-center {
+    display: flex;
+    align-items: center;
+}
+/* position-center */
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* 검색필드창 */
+@mixin input-text($width: null, $height: null, $bg-color: $color-white) {
+    position: relative;
+    width: $width;
+    height: $height;
+    background-color: $bg-color;
+}
+/* 비밀번호입력창 */
+$password-color-b: url("../images/common/ic-password.png") no-repeat center;
+@mixin input-password($size: px(103), $margin-right: px(20), $input-bg: $color-sub-gray, $shadow-size: px(6), $shadow-color: $color-primary, $focus-input-bg: $color-white, $background-size: px(38), $password-color: $password-color-b) {
+    @include flex-items-center;
+    justify-content: center;
+    height: $size;
+    p {
+        position: relative;
+        width: $size;
+        height: $size;
+        margin-right: $margin-right;
+        border-radius: px(8);
+        text-align: center;
+        background-color: $input-bg;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .entered {
+        background: $input-bg $password-color;
+        background-size: $background-size;
+    }
+    &.active {
+        .focus {
+            background-color: $focus-input-bg;
+            &::after {
+                @include focus-border;
+                box-shadow: 0 0 0 $shadow-size $shadow-color;
+            }
+            &.entered {
+                background: $focus-input-bg $password-color;
+                background-size: $background-size;
+            }
+        }
+    }
+}
+/* button */
+@mixin button($width: px(277), $height: px(57), $border-radius: px(8)) {
+    // position: relative;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    border-radius: $border-radius;
+    p, i {
+        // position: relative;
+        // z-index: 1;
+        padding-bottom: 0;
+        font: {
+            family: $font-bold;
+            size: 3rem;
+        }
+    }
+    i {
+        &::before {
+            @include vs-ib;
+            margin-right: px(7);
+            @include background-default;
+        }
+    }
+}
+/* 스크롤 */
+@mixin scroll($top: px(113), $right:px(16), $width: px(6), $height: px(607), $color1: $color-white-20, $color2: $color-white-80) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    width: $width;
+    height: $height;
+    border-radius: calc(#{$width} / 2);
+    background-color: $color1;
+    z-index: 1;
+    span {
+        display: inline-block;
+        width: 100%;
+        border-radius: calc(#{$width} / 2);
+        background-color: $color2;
+    }
+}
+/* 리모콘 키가이드 */
+@mixin ic-round($height: px(34)) {
+    $border: px(2);
+    display: inline-flex;
+    height: $height;
+    line-height: calc(#{$height} - #{$border} * 3);
+    border-radius: calc(#{$height} / 2);
+    border: $border solid rgba($color-pure-white, 0.7);
+    padding: 0 px(20);
+    color: rgba($color-pure-white, 0.7);
+}
+/* 툴팁 */
+// @mixin tooltip($color: rgba($color-black, 0.5)) {
+//     position: absolute;
+//     display: inline-block;
+//     line-height: 1.5;
+//     padding: px(25) px(17);
+//     text-align: center;
+//     border-radius: px(6);
+//     font: {
+//         family: $font-bold;
+//         size: 2.1rem;
+//     }
+//     color: $color-tooltip-text;
+//     background-color: $color;  
+//     &::before {
+//         @include vs;
+//         top: px(40);
+//         left: auto;
+//         right: px(-32, -20);
+//         width: px(18);
+//         height: px(18);
+//         border: {
+//             width: px(16);
+//             style: solid;
+//             color: transparent transparent $color transparent;
+//         }
+//         transform: rotate(90deg);
+//     }
+// }
+/* 별점 별 */
+@mixin rating-star($margin: px(8)) {
+    //url
+    $url-images: "../images/common/";
+    display: block;
+    width: px(35);
+    height: px(34);
+    margin-right: $margin;
+    background-image: url($url-images + "ic-ratingstar-full-w.png");
+    @include background-default;
+    &.full {
+        background-image: url($url-images + "ic-ratingstar-full.png");
+    }
+    &.half {
+        background-image: url($url-images + "ic-ratingstar-half.png");
+    }
+    &.empty {
+        background-image: url($url-images + "ic-ratingstar-none.png");
+    }
+}
+/* ic-tag */
+@mixin ic-tag($height: px(54), $text-color: $color-black, $bg-color: $color-accent, $border: px(2)) {
+    display: inline-block;
+    height: $height;
+    margin-right: px(27);
+    line-height: calc(#{$height} - #{$border} * 2);
+    padding: 0 px(10);
+    text-align: center;
+    font: {
+        family: $font-bold;
+        size: 2.7rem;
+    }
+    border: $border solid $color-white;
+    border-radius: px(3);
+    color: $text-color;
+    box-shadow: 0 px(3) px(6) 0 rgba(0, 0, 0, 0.5);
+    background-color: $bg-color;
+}
+/* select-box */
+@mixin select-box($width: px(488), $height: px(68)) {
+    position: relative;
+    width: $width;
+    .select {
+        position: relative;
+        z-index: 3;
+        width: $width;
+        height: $height;
+        padding: 0 px(20);
+        border-radius: px(7);
+        text-align: left;
+        font: {
+            family: $font-bold;
+            size: 3.3rem;
+        }
+        background-color: $color-bg-select;
+        &::after {
+            @include vs;
+            top:50%;
+            left: auto;
+            right: px(23);
+            transform: translateY(-50%);
+            width: px(29);
+            height: px(18);
+            background-image: url('../images/common/ic-arrow.png');
+            @include background-default;
+        }
+    }
+    .select-option {
+        position: absolute;
+        z-index: 2;
+        overflow: hidden;
+        width: 100%;
+        max-height: px(306);
+        margin-top: px(-68, -45);
+        padding-top: px(90);
+        border-radius: px(8);
+        background-color: $color-bg-button;
+        &.bottom-cover {
+            &::after {
+                @include vs;
+                top: auto;
+                bottom: 0;
+                width: 100%;
+                height: px(52);
+                border-radius: px(8);
+                background-image: linear-gradient(to bottom, $color-bg-transparent, $color-bg-button);
+            }
+        }
+        li {
+            position: relative;
+            width: px(422);
+            padding: 0 px(20);
+            margin-bottom: px(22);
+            p {
+                font-size: 3rem;
+            }
+            &.focus {
+                &::after {
+                    @include vs;
+                    width: 100%;
+                    height: px(68);
+                    margin-top: px(-14);
+                    border-radius: px(8);
+                    background-color: $color-primary;
+                }
+                p {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+        }
+        .scroll {
+            @include scroll($top: px(93), $right: px(30), $width: px(6), $height: px(217), $color2: $color-gray);
+            background-color: unset;
+        }
+    }
+    &.active {
+        .focus {
+            &.select {
+                background-color: $color-primary;
+            }
+        }
+    }
+}

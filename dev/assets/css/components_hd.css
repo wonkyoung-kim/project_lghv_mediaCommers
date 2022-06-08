@@ -1,0 +1,690 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* 포커스라인 */
+/* vs */
+/* background-default */
+/* flex-items-center */
+/* position-center */
+/* 검색필드창 */
+/* 비밀번호입력창 */
+/* button */
+/* 스크롤 */
+/* 리모콘 키가이드 */
+/* 툴팁 */
+/* 별점 별 */
+/* ic-tag */
+/* select-box */
+/* 상품(홈,상품리스트,플레이어에서 사용) */
+.product {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 849px;
+  height: 138px;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  color: #fff;
+  background-color: #2a2b3d;
+}
+
+.product .product-image {
+  position: relative;
+  overflow: hidden;
+  width: 114px;
+  height: 114px;
+  margin-right: 14px;
+  border-radius: 6px;
+}
+
+.product .product-image::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/common/img-thumbnail-default.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.product .product-info > p {
+  display: inline-block;
+  width: 563px;
+  margin-bottom: 3px;
+  opacity: 0.5;
+  font-family: "Yoon Gothic 700 50", "Yoon Gothic 750", "YoonGothicPro750", "Yoon 윤고딕 750";
+  font-size: 2.4rem;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product .product-info h4 {
+  width: 434px;
+  margin-bottom: 9px;
+  font-size: 3.6rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product .product-info .order-number {
+  position: absolute;
+  bottom: 26px;
+  right: 26px;
+  opacity: 0.8;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.4rem;
+  color: #d6d6d6;
+}
+
+.product .product-info .order-number em {
+  color: #ffce22;
+}
+
+.product .product-info .order-number + .button-area {
+  bottom: 62px;
+}
+
+.product .product-info .price-info {
+  display: flex;
+  align-items: center;
+}
+
+.product .product-info .price-info p {
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+  color: #ddd;
+}
+
+.product .product-info .price-info .discount {
+  margin-right: 4px;
+  font-size: 3rem;
+  color: #ffce22;
+}
+
+.product .product-info .price-info .normal-price {
+  position: relative;
+  margin-right: 3px;
+  padding-right: 18px;
+  font-size: 2.7rem;
+  color: #b0b0b0;
+}
+
+.product .product-info .price-info .normal-price::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 1px;
+  background-color: #979797;
+}
+
+.product .product-info .price-info .normal-price::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  left: auto;
+  right: 3px;
+  transform: translateY(-50%) rotate(45deg) skew(-16deg, -16deg);
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #979797;
+  border-right: 1px solid #979797;
+}
+
+.product .product-info .price-info .sale-price {
+  display: flex;
+  align-items: center;
+  font-size: 3.3rem;
+  color: #fd8a2c;
+}
+
+.product .product-info .price-info .sale-price span {
+  font-size: 5.1rem;
+  margin: 0 2px;
+}
+
+.product .product-info .product-state {
+  position: absolute;
+  top: 46px;
+  right: 42px;
+  width: 220px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  text-align: center;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.9rem;
+  color: #d6d6d6;
+}
+
+.product .product-info .product-state + .button-area {
+  top: 102px;
+}
+
+.product.rental .product-info .price-info .normal-price, .product.rental .product-info .price-info .discount {
+  margin-right: 8px;
+}
+
+.product.rental .product-info .price-info .sale-price span {
+  margin: 0 2px 0 5px;
+}
+
+.product.sold-out .price-info {
+  opacity: 0.6;
+}
+
+/* 상품(상품상세, 주문에서 사용) */
+.product-default .product {
+  flex-direction: column;
+  position: absolute;
+  width: 356px;
+  height: 100%;
+  padding: 113px 40px 0;
+  border-radius: 0;
+  background-color: #161924;
+}
+
+.product-default .product.rental .price-info {
+  margin-bottom: 30px;
+}
+
+.product-default .product.rental .price-info .discount {
+  font-size: 3.4rem;
+}
+
+.product-default .product.rental .price-info .normal-price {
+  font-size: 2.6rem;
+}
+
+.product-default .product.rental .price-info .sale-price {
+  font-size: 3.2rem;
+}
+
+.product-default .product.rental .price-info .sale-price span {
+  margin: 0 2px;
+  font-size: 5rem;
+}
+
+.product-default .product-image {
+  width: 276px;
+  height: 276px;
+  margin-right: 0;
+  margin-bottom: 26px;
+}
+
+.product-default .product-info {
+  position: relative;
+  width: 100%;
+}
+
+.product-default .product-info > p {
+  width: 284px;
+  margin-bottom: 5px;
+  font-size: 2.8rem;
+}
+
+.product-default .product-info h4 {
+  width: 272px;
+  height: 70px;
+  margin-bottom: 21px;
+  font-size: 3.9rem;
+  overflow: hidden;
+  display: -webkit-box;
+  white-space: normal;
+  /* autoprefixer: ignore next */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-default .product-info .price-info {
+  flex-wrap: wrap;
+  width: 316px;
+  margin-bottom: 20px;
+}
+
+.product-default .product-info .price-info .discount {
+  display: flex;
+  align-items: center;
+  align-items: flex-end;
+  width: 100%;
+  line-height: 1;
+  font-size: 4.5rem;
+}
+
+.product-default .product-info .price-info .normal-price {
+  font-size: 2.8rem;
+  margin-right: 0;
+  padding-right: 12px;
+}
+
+.product-default .product-info .price-info .sale-price {
+  font-size: 3.6rem;
+}
+
+.product-default .product-info .price-info .sale-price span {
+  font-size: 5.2rem;
+  margin: 0 6px;
+}
+
+.product-default .product-info button {
+  width: 276px;
+  height: 52px;
+  line-height: 52px;
+  border-radius: 5px;
+}
+
+.product-default .product-info button p, .product-default .product-info button i {
+  padding-bottom: 0;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.product-default .product-info button i::before {
+  display: inline-block;
+  content: '';
+  margin-right: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 탭메뉴 공통영역 */
+.tab-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.tab-menu li {
+  position: relative;
+  flex: 1;
+  padding-bottom: 22px;
+  line-height: 1;
+  text-align: center;
+  font-size: 3.4rem;
+  color: #a9a9a9;
+}
+
+.tab-menu li::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.tab-menu li.selected {
+  color: #fd8a2c;
+}
+
+.tab-menu.active .focus {
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  color: #e50914;
+}
+
+.tab-menu.active .focus::after {
+  height: 4px;
+  margin-bottom: -1.5px;
+  background-color: #e50914;
+}
+
+.tab-contents {
+  overflow: hidden;
+  height: 607px;
+  padding-right: 29px;
+}
+
+.tab-contents > div {
+  height: 100%;
+}
+
+/* 버튼영역 */
+.button-area {
+  display: flex;
+}
+
+.button-area button {
+  width: 112px;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 21px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.43);
+  background-color: #676c84;
+}
+
+.button-area button p {
+  padding-bottom: 1px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.7rem;
+  color: #eee;
+}
+
+.button-area button.dimmed {
+  background-color: #191924;
+}
+
+.button-area button.dimmed p {
+  opacity: 0.4;
+}
+
+.button-area button.dimmed.focus {
+  background-color: #191924;
+}
+
+.button-area button i::before {
+  display: inline-block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-area button + button {
+  margin-left: 8px;
+}
+
+.button-area .icon-button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+.button-area .icon-button i {
+  display: inline-block;
+}
+
+.button-area .icon-button .ic-favorite {
+  width: 22px;
+  height: 21px;
+}
+
+.button-area .icon-button .ic-favorite::before {
+  background-image: url("../images/home/ic-home-favorite.png");
+}
+
+.button-area .icon-button .ic-detail {
+  width: 25px;
+  height: 20px;
+  margin-left: 3px;
+}
+
+.button-area .icon-button .ic-detail::before {
+  background-image: url("../images/home/ic-home-detail.png");
+}
+
+.button-area .icon-button.selected .ic-favorite {
+  width: 21px;
+  height: 19px;
+}
+
+.button-area .icon-button.selected .ic-favorite::before {
+  background-image: url("../images/home/ic-home-favorite-selected.png");
+}
+
+.button-area.active .focus {
+  background-color: #e50914;
+}
+
+.button-area.active .focus .ic-detail::before {
+  background-image: url("../images/home/ic-home-detail-focus.png");
+}
+
+/* 리모콘 키가이드 */
+.keyguide {
+  display: flex;
+  margin-right: 10px;
+  line-height: 22px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.keyguide .ic-round {
+  display: inline-flex;
+  height: 22px;
+  line-height: calc(22px - 1px * 3);
+  border-radius: calc(22px / 2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 0 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 5px;
+}
+
+.keyguide .ic-round.color-key {
+  align-items: center;
+}
+
+.keyguide .ic-round.color-key::after {
+  display: inline-block;
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: calc(12px / 2);
+}
+
+.keyguide .ic-round.color-key.blue::after {
+  background-color: #3174ff;
+}
+
+/* page경로 */
+.path {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 40px;
+  top: 36px;
+  z-index: 1;
+  opacity: 0.8;
+  font-size: 2.4rem;
+}
+
+.path span {
+  position: relative;
+  margin-right: 22px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  color: #777;
+}
+
+.path span::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  left: unset;
+  right: -17px;
+  content: '>';
+}
+
+.path span + span:last-child {
+  color: #ffce22;
+  margin-right: 0;
+}
+
+.path span + span:last-child::after {
+  content: none;
+}
+
+/* 검색필드 */
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field label {
+  margin-right: 13px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.7rem;
+}
+
+.input-field .input-text {
+  position: relative;
+  width: 522px;
+  height: 56px;
+  line-height: calc(56px - 3px);
+  border-radius: 5px;
+  color: #000;
+}
+
+.input-field .input-text .placeholder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  padding-left: 18px;
+  line-height: 56px;
+  text-align: left;
+  font-size: 3rem;
+  color: #999;
+}
+
+.input-field .input-text .placeholder.on {
+  display: block;
+}
+
+.input-field .input-text .input-text-wrap {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  box-shadow: inset 0 0 0 2px #d6d6d6;
+  border-radius: 4px;
+  height: 100%;
+}
+
+.input-field .input-text .input-text-wrap span {
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.input-field .input-text.active .focus {
+  box-shadow: none;
+}
+
+.input-field .input-text.active .focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px #e50914;
+  box-shadow: 0 0 0 4px #e50914;
+}
+
+.input-field ul li {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  margin-top: 10px;
+}
+
+.input-field ul li:first-child {
+  margin-top: 0;
+}
+
+.input-field ul li label {
+  display: block;
+  min-width: 86px;
+  margin-right: 35px;
+  text-align: left;
+  font-size: 3.3rem;
+}
+
+.input-field ul li .input-box {
+  display: flex;
+  align-items: center;
+}
+
+.input-field ul li .input-text .placeholder {
+  padding-left: 0;
+  font-size: 2.7rem;
+}
+
+.input-field ul li .input-text .input-text-wrap {
+  justify-content: center;
+}
+
+.input-field ul li .input-text .input-text-wrap span {
+  font-size: 2.7rem;
+  color: #999;
+}
+
+.input-field ul li .input-text.active .focus span {
+  color: #e50914;
+}
+
+/* 비밀번호 입력 */
+.input-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
+}
+
+.input-password p {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  margin-right: 13px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.input-password p:last-child {
+  margin-right: 0;
+}
+
+.input-password .entered {
+  background: #ddd url("../images/common/ic-password.png") no-repeat center;
+  background-size: 25px;
+}
+
+.input-password.active .focus {
+  background-color: #eee;
+}
+
+.input-password.active .focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px #e50914;
+  box-shadow: 0 0 0 4px #e50914;
+}
+
+.input-password.active .focus.entered {
+  background: #eee url("../images/common/ic-password.png") no-repeat center;
+  background-size: 25px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>미디어커머스</title>
+</head>
+<body>
+    <div class="popup-container purchase-auth-popup">
+
+        <!--결제 비밀번호 입력 팝업-->
+        <div class="popup middle">
+            <div class="popup-header">
+                <h3>구매 비밀번호</h3>
+            </div>
+            <div class="popup-body text-center">
+                <p><em>구매 비밀번호 4자리를 입력하여 주세요.</em></p>
+                <p class="body-text">
+                    구매 비밀번호는 헬로tv VOD 결제 비밀번호와 동일합니다.<br />
+                    비밀번호를 변경하시려면 설정 > 사용환경설정 > 비밀번호 변경에서<br />
+                    구매 비밀번호를 변경해 주세요.
+                </p>
+                <div class="input-text input-password active _active">
+                    <p class="input-text-wrap entered"></p>
+                    <p class="input-text-wrap focus"></p>
+                    <p class="input-text-wrap"></p>
+                    <p class="input-text-wrap"></p>
+                </div>
+                <p class="error-message on">잘못된 비밀번호 입니다. 다시 입력해 주세요.</p><!--비밀번호 잘못입력시 노출되는 문구: on클래스 제거시 텍스트 안보이게 처리-->
+            </div>
+            <div class="popup-footer _active">
+                <button class="popup-button dimmed focus">확인</button><!--dimmed: 비활성화 상태(미입력, 잘못된 번호 입력시에는 비활성화 상태)-->
+                <button class="popup-button">취소</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

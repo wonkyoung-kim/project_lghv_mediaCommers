@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>미디어커머스</title>
+</head>
+<body>
+    <div class="container my-info-list">
+
+        <!--페이지 경로-->
+        <p class="path">
+            <span>마이</span>
+            <span>배송지/카드 관리</span>
+        </p>
+
+        <!-- 배송지관리 -->
+        <main class="my-contents address-info">
+            <div class="tap-contents-wrap">
+                <!--탭 메뉴-->
+                <ul class="tab-menu _active">
+                    <li class="selected">배송지관리</li>
+                    <li>신용카드 관리</li>
+                </ul>
+
+                <!--컨텐츠 영역: 목록이 있는 경우-->
+                <div class="tab-contents">
+                    <ul class="address-list active _active">
+                        <li class="add-button"><!--배송지등록 버튼-->
+                            <div class="button-area active _active">
+                                <button class="focus">
+                                    <i class="ic-plus">등록하기</i>
+                                </button>
+                                <button>
+                                    <p>헬로tv 정보 불러오기</p>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="name">김헬로</p>
+                            <p class="phone-number">( 010-1234-5678 )</p>
+                            <p class="address">
+                                서울특별시 마포구 월드컵북로56길 19 드림타워 아파트 102동 403호(지번) 
+                                서울특별시 마포구 월드컵북로56길 19
+                            </p>
+                            <div class="button-area">
+                                <button>
+                                    <p>삭제</p>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="name">김헬로</p>
+                            <p class="phone-number">( 010-1234-5678 )</p>
+                            <p class="address">
+                                서울특별시 마포구 월드컵북로56길 19 드림타워 아파트 102동 403호(지번) 
+                                서울특별시 마포구 월드컵북로56길 19
+                            </p>
+                            <div class="button-area">
+                                <button>
+                                    <p>삭제</p>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="scroll">
+                        <span style="height: 50%; transform: translateY(0px);"></span>
+                    </div>
+                </div>
+
+                <!--컨텐츠 영역 : 목록이 없는 경우-->
+                <div class="empty-contents">
+                    <em>등록된 배송지가 없습니다.</em>
+                    <p class="ic-delivery">배송지 등록하시고, 상품을 편하게 구매해보세요.</p>
+                    <div class="button-area active _active">
+                        <button class="focus">
+                            <p>등록하기</p>
+                        </button>
+                        <button class="bring-info">
+                            <p>헬로tv 정보 불러오기</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 카드관리 -->
+        <main class="my-contents card-info">
+            <div class="tap-contents-wrap">
+                <!--탭 메뉴-->
+                <ul class="tab-menu _active">
+                    <li>배송지관리</li>
+                    <li class="selected">신용카드 관리</li>
+                </ul>
+
+                <!--컨텐츠 영역: 목록이 있는 경우-->
+                <div class="tab-contents">
+                    <div class="contents-list-wrap">
+                        <ul class="card-list active _active">
+                            <li class="focus">
+                                <h4>신한카드</h4>
+                                <p class="card-number">5500-0000-6000-1234</p>
+                                <div class="button-area">
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <h4>신한카드</h4>
+                                <p class="card-number">5500-0000-6000-1234</p>
+                                <div class="button-area">
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="add-button"><!--카드등록 버튼-->
+                                <h4>신용카드 등록하기</h4>
+                                <p>
+                                    빠르고 간편한 결제를 위해<br />
+                                    카드를 등록해주세요.
+                                </p>
+                                <div class="button-area">
+                                    <button>
+                                        <p>등록하기</p>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="noti-message">• 구매 비밀번호 관리 및 변경은 헬로tv 설정 > 자녀 보호 설정 > 비밀번호 변경에서 하실 수 있습니다.</p>
+                    </div>
+                    <div class="scroll">
+                        <span style="height: 50%; transform: translateY(0px);"></span>
+                    </div>
+                </div>
+
+                <!--컨텐츠 영역 : 목록이 없는 경우-->
+                <div class="empty-contents">
+                    <em>등록된 카드가 없습니다.</em>
+                    <p>한 번의 카드 등록으로 쇼핑을 쉽고 편하게 즐겨보세요.</p>
+                    <p class="sub-text">• 구매 비밀번호 관리 및 변경은 헬로tv 설정 > 자녀 보호 설정 > 비밀번호 변경에서 하실 수 있습니다.</p>
+                    <div class="button-area active _active">
+                        <button class="focus">
+                            <p>등록하기</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>

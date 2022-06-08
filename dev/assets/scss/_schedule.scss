@@ -1,0 +1,190 @@
+@charset "utf-8";
+@import 'config';
+
+/* 편성표 */
+.schedule {
+    //공통영역
+    .contents {
+        position: relative;
+        height: 100%;
+        padding-top: px(130);
+        background-color: $color-bg-contents;
+        .list-contents-wrap {
+            overflow: hidden;
+            width: px(1782);
+            margin: 0 auto;
+        }
+        ul {
+            li {
+                position: relative;
+                @include flex-items-center;
+                margin-bottom: px(74);
+                &::after {
+                    @include vs;
+                    top: auto;
+                    bottom: px(-36);
+                    width: 100%;
+                    height: px(2);
+                    background-color: $color-line-gray;
+                }
+            }
+            &.active {
+                .focus {
+                    .ic-arrow {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .ic-arrow {
+            position: absolute;
+            left: px(104);
+            width: px(57);
+            height: px(51);
+            font-size: 0;
+            display: none;
+            background-image: url('../images/common/ic-arrow-up.png');
+            @include background-default;
+            &.prev {
+                top: px(-11);
+            }
+            &.next {
+                bottom: px(-21);
+                transform: rotate(-180deg);
+            }
+        }
+        //하단 그라데이션
+        &.bottom-cover {
+            &::after {
+                @include vs;
+                top: auto;
+                bottom: 0;
+                width: 100%;
+                height: px(150);
+                opacity: 0.85;
+                background-image: linear-gradient(to bottom, $color-bg-transparent, $color-black);
+            }
+        }
+    }
+    //상품영역
+    .product {
+        width: px(1503);
+        height: px(287);
+        .product-image {
+            $size: px(239);
+            width: $size;
+            height: $size;
+            margin-right: px(30);
+        }
+        .product-info {
+            > p {
+                font-size: 2.9rem;
+            }
+            h4 {
+                margin-bottom: px(40);
+                font-size: 3.8rem;
+            }
+            .price-info {
+                .discount {
+                    font-size: 3.2rem;
+                }
+                .normal-price {
+                    font-size: 2.9rem;
+                }
+                .sale-price {
+                    font-size: 3.5rem;
+                    span {
+                        font-size: 5.4rem;
+                    }
+                }
+            }
+            .order-number {
+                right: px(78);
+                bottom: px(57);
+            }
+        }
+        .button-area {
+            position: absolute;
+            top: px(115);
+            right: px(63);
+            width: px(331);
+            button {
+                flex: 1;
+                height: px(56);
+                p {
+                    font-size: 2.4rem;
+                }
+                & + button {
+                    margin-left: px(13);
+                }
+                &.selected {
+                    p {
+                        color: $color-accent;
+                    }
+                }
+                &.focus, &.selected {
+                    p {
+                        text-shadow: 0 px(3) px(6) rgba($color-black, 0.5);
+                    }
+                }
+            }
+        }
+    }
+    //시간정보
+    .time-info {
+        @include flex-items-center;
+        flex-direction: column;
+        width: px(287);
+        .ic-tag {
+            @include ic-tag($height: px(45), $text-color: $color-pure-white, $bg-color: unset, $border: px(2));
+            width: px(123);
+            margin: 0 auto px(20);
+            border-radius: px(6);
+            border-color: $color-pure-white;
+            font-size: 2.1rem; 
+        }
+        .date {
+            margin-bottom: px(4);
+            font-size: 2.4rem;
+            color: $color-pure-white;
+        }
+        .time {
+            font: {
+                family: $font-bold;
+                size: 3rem;
+            }
+            color: $color-pure-white;
+        }
+    }
+    //지난방송
+    .last {
+        .ic-tag {
+            color: $color-sub-dark-gray;
+            border-color: $color-sub-dark-gray;
+        }
+        .date, .time {
+            color: $color-sub-dark-gray;
+        }
+    }
+    //방송중
+    .now {
+        .ic-tag {
+            position: relative;
+            border-color: $color-primary;
+            font-size: 2.5rem;
+            color: $color-primary;
+            &::before {
+                @include vs;
+                left: px(9);
+                top: px(6);
+                width: px(8);
+                height: px(8);
+                border-radius: 50%;
+                background-color: $color-primary;
+            }
+        }
+        .time {
+            color: $color-accent;
+        }
+    }
+}

@@ -1,0 +1,487 @@
+@charset "utf-8";
+@import 'config';
+//url
+$url-images: "../images/purchase/";
+
+/* 주문하기 */
+.purchase {
+    //공통영역
+    .product-default {
+        .product {
+            padding: px(106) px(60) 0;
+        }
+        .product-image {
+            margin-bottom: px(53);
+        }
+        .product-info {
+            h4 {
+                margin-bottom: px(90);
+            }
+        }
+    }
+    .purchase-step {
+        $product-default-width: px(535);
+        width: 100%;
+        height: 100%;
+        padding-left: $product-default-width;
+        background-color: $color-bg-contents;
+        > div {
+            width: px(1263);
+            height: 100%;
+            margin: 0 auto;
+            padding-top: px(95);
+        }
+    }
+    .step-title {
+        @include flex-items-center;
+        margin-bottom: px(72);
+        h3 {
+            @include flex-items-center;
+            justify-content: center;
+            position: relative;
+            width: px(327);
+            height: px(57);
+            font-size: 2.6rem;
+            color: rgba($color-white, 0.7);
+            background-color: $color-bg-component;
+        }
+    }
+    .contents {
+        padding-left: px(13);
+        ul {
+            display: flex;
+            flex-direction: column;
+            height: px(598);
+            li {
+                @include flex-items-center;
+                align-items: baseline;
+                margin-bottom: px(55);
+                .label {
+                    width: px(141);
+                    margin-right: px(86);
+                    font-size: 3.7rem;
+                }
+                > div {
+                    width: px(875);
+                }
+                p {
+                    font-size: 3.3rem;
+                }
+                .button-area {
+                    margin-left: 0;
+                    button {
+                        @include button($width: px(210), $height: px(67));
+                        padding: 0;
+                        p, i {
+                            font-size: 2.4rem;
+                        }
+                        i {
+                            @include flex-items-center;
+                            justify-content: center;
+                            &.ic-change {
+                                &::before {
+                                    width: px(23);
+                                    height: px(23);
+                                    background-image: url($url-images + "ic-purchase-change.png");
+                                }
+                            }
+                            &.ic-plus {
+                                &::before {
+                                    width: px(24);
+                                    height: px(24);
+                                    background-image: url($url-images + "ic-purchase-plus.png");
+                                }
+                            }
+                            &.ic-card {
+                                &::before {
+                                    width: px(35);
+                                    height: px(23);
+                                    background-image: url($url-images + "ic-purchase-card.png");
+                                }
+                            }
+                        }
+                        & + button {
+                            margin-left: px(15);
+                        }
+                        //모바일로 상품보기 버튼
+                        &.view-mobile {
+                            width: px(265);
+                        }
+                        //헬로티비 정보 불러오기 버튼
+                        &.bring-info {
+                            width: px(284);
+                        }
+                    }
+                    &.active {
+                        .focus {
+                            .ic-card {
+                                &::before {
+                                    background-image: url($url-images + "ic-purchase-card-focus.png");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .total {
+            @include flex-items-center;
+            align-items: baseline;
+            justify-content: space-between;
+            width: px(830);
+            margin-left: px(230);
+            margin-bottom: px(30);
+            font-size: 2.7rem;
+            .price {
+                span {
+                    font-size: 3.3rem;
+                    color: $color-orange;
+                    em {
+                        padding: 0 px(5) 0 px(14);
+                        font: {
+                            family: $font-bold;
+                            size: 5.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .button-area {
+        margin-left: px(230);
+        button {
+            @include button($width: px(830), $height: px(75));
+            & + button {
+                margin-left: px(23);
+            }
+        }
+    }
+    //purchase-step1
+    .purchase-step1 {
+        .step-title {
+            h3:nth-child(1) {
+                z-index: 1;
+                width: px(964);
+                height: px(70);
+                font-size: 3.1rem;
+                color: $color-white;
+                background-color: unset;
+                background-image: url($url-images + "ic-purchase-step1.png");
+                @include background-contain;
+            }
+            h3:nth-child(2) {
+                margin-left: px(-28);
+            }
+        }
+        .delivery-info-list {
+            .product-name {
+                margin-bottom: px(44);
+                h4 {
+                    width: px(550);
+                    font: {
+                        family: $font-bold;
+                        size: 3.3rem;
+                    }
+                    @include ellipsis;
+                }
+                > div {
+                    @include flex-items-center;
+                }
+                .button-area {
+                    margin-left: px(26);
+                    button {
+                        width: px(233);
+                    }
+                }
+            }
+            .address-info {
+                margin-bottom: px(53);
+                > div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    > p {
+                        margin-bottom: px(30);
+                    }
+                }
+                .phone-number {
+                    position: relative;
+                    margin-left: px(70);
+                    &::before {
+                        @include vs;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: px(5);
+                        height: px(33);
+                        margin-left: px(-38);
+                        background-color: $color-gray-divider;
+                    }
+                }
+                .address {
+                    font-size: 3rem;
+                }
+            }
+            .delivery-charge {
+                margin-bottom: px(87);
+                p {
+                    font-size: 3rem;
+                    &.sub-text {
+                        margin-top: px(20);
+                        font-size: 2.7rem;
+                        color: $color-gray-60;
+                    }
+                }
+            }
+        }
+    }
+    //purchase-step2
+    .purchase-step2 {
+        .step-title {
+            h3:nth-child(2) {
+                z-index: 1;
+                width: px(953);
+                height: px(69);
+                font-size: 3.1rem;
+                color: $color-white;
+                background-color: unset;
+                background-image: url($url-images + "ic-purchase-step2.png");
+                @include background-contain;
+            }
+            h3:nth-child(1) {
+                margin-right: px(-28);
+            }
+        }
+        .payment-info-list {
+            .card-payment { 
+                margin-bottom: px(66);
+                div {
+                    > p {
+                        margin-bottom: px(30);
+                    }
+                }
+            }
+            .month-payment {
+                margin-bottom: px(172);
+                button {
+                    width: px(483);
+                }
+                .select-box {
+                    @include select-box;
+                    margin-bottom: px(30);
+                    .select-option {
+                        display: none;
+                    }
+                }
+            }
+            .bill-payment {
+                > div {
+                    > p {
+                        margin-bottom: px(62);
+                    }
+                    .payment-info {
+                        width: px(686);
+                        margin-bottom: px(30);
+                        p {
+                            @include flex-items-center;
+                            margin-bottom: px(18);
+                            padding-bottom: px(18);
+                            border-bottom: px(1,1) solid $color-white-10;
+                            font-size: 2.7rem;
+                            color: $color-white-80;
+                            span {
+                                margin-left: auto;
+                                font-size: 3rem;
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    .add-exp {
+                        p {
+                            line-height: 1.5;
+                            font-size: 2.6rem;
+                            color: $color-gray;
+                        }
+                    }
+                }
+            }
+        }
+        .button-area {
+            button {
+                @include button($width: px(405), $height: px(75));
+            }
+        }
+    }
+}
+
+/* 주문완료 */
+.purchase-complet {
+    $width: px(1119);
+    background-color: $color-bg-contents;
+    .purchase-info {
+        width: px(1361);
+        height: px(912);
+        margin: 0 auto;
+        padding-top: px(120);
+        background-image: url($url-images + "img-purchase-bill.png");
+        @include background-default;
+        background-position: center px(26);
+    }
+    .purchase-header {
+        position: relative;
+        width: $width;
+        margin: 0 auto;
+        padding-bottom: px(30);
+        text-align: center;
+        &::after {
+            @include vs;
+            top: auto;
+            bottom: 0;
+            width: 100%;
+            height: px(1,1);
+            background-color: $color-white-10;
+        }
+        p {
+            margin-bottom: px(20);
+            font: {
+                family: $font-bold;
+                size: 4.5rem;
+            }
+            &.complet-message {
+                margin-bottom: 0;
+                font: {
+                    family: $font-regular;
+                    size: 2.7rem;
+                }
+                &::before {
+                    @include vs-ib;
+                    width: px(47);
+                    height: px(31);
+                    margin-right: px(13);
+                    vertical-align: middle;
+                    background-image: url($url-images + "ic-purchase-delivery.png");
+                    @include background-default;
+                }
+            }
+        }
+    }
+    .contents {
+        width: $width;
+        margin: 0 auto;
+        padding-top: px(65);
+        .purchase-info-list {
+            padding: 0 px(25);
+            li {
+                @include flex-items-center;
+                justify-content: space-between;
+                .label {
+                    align-self: flex-start;
+                    width: px(105);
+                    font-size: 2.7rem;
+                }
+                p {
+                    width: px(887);
+                    font-size: 3rem;
+                }
+            }
+            .order-number {
+                margin-bottom: px(43);
+            }
+            .order-product {
+                margin-bottom: px(30);
+                h4 {
+                    line-height: px(45);
+                    font: {
+                        family: $font-bold;
+                        size: 3rem; 
+                    }
+                }
+                p {
+                    line-height: px(45);
+                    font-size: 2.7rem;
+                    span {
+                        position: relative;
+                        margin-left: px(45);
+                        &::before {
+                            @include vs;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: px(2);
+                            height: px(24);
+                            margin-left: px(-23);
+                            background-color: $color-white;
+                        }
+                    }
+                }
+            }
+            .address-info {
+                .name, .phone-number {
+                    display: inline-block;
+                    width: auto;
+                    margin-bottom: px(20);
+                    font-family: $font-bold;
+                }
+                .phone-number {
+                    position: relative;
+                    margin-left: px(45);
+                    &::before {
+                        @include vs;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: px(2);
+                        height: px(24);
+                        margin-left: px(-23);
+                        background-color: $color-white;
+                    }
+                }
+                .address {
+                    height: px(66);
+                    font-size: 2.7rem;
+                    @include ellipsis($line:2);
+                }
+            }
+            .total {
+                position: relative;
+                margin-top: px(107);
+                &::before {
+                    @include vs;
+                    left: px(-25);
+                    width: $width;
+                    height: px(3);
+                    margin-top: px(-45);
+                    background-image: url($url-images + "img-purchase-dash-line.png");
+                    @include background-default;
+                }
+                .label {
+                    align-self: center;
+                }
+                .price {
+                    color: $color-orange;
+                    font: {
+                        family: $font-bold;
+                        size: 3.8rem;
+                    }
+                    span {
+                        margin-left: px(10);
+                        font-size: 2.8rem;
+                    }
+                    &.bill-price {
+                        span {
+                            color: $color-gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .button-area {
+        justify-content: center;
+        margin-top: px(10);
+        button {
+            @include button($width: px(300), $height: px(89));
+            & + button {
+                margin-left: px(23);
+            }
+        }
+    }
+}

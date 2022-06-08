@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>미디어커머스</title>
+</head>
+<body>
+    <div class="container my-favorite-list">
+
+        <!--페이지 경로-->
+        <p class="path">
+            <span>마이</span>
+            <span>찜한 상품</span>
+        </p>
+
+        <!--공지 메세지-->
+        <p class="noti-message">* 최근 1년간 찜한 상품 내역이 제공됩니다.</p>
+
+        <!--컨텐츠 영역 : 목록이 있는 경우-->
+        <main class="my-contents">
+            <div class="list-contents-wrap">
+                <ul class="favorite-list">
+                    <li>
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                            </div>
+                            <div class="product-info">
+                                <p class="date">2021.11.30 (월)</p>
+                                <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                <div class="price-info">
+                                    <p class="discount">20%</p>
+                                    <p class="normal-price">32,000원</p>
+                                    <p class="sale-price"><span>25,600</span>원</p>
+                                </div>
+                                <div class="button-area active _active">
+                                    <button class="focus">
+                                        <p>상품보기</p>
+                                    </button>
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="product sold-out"><!--찜한상품이 판매종료거나 품절인 경우: sold-out(가격이 딤처리)-->
+                            <div class="product-image">
+                                <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                            </div>
+                            <div class="product-info">
+                                <p class="date">2021.11.30 (월)</p>
+                                <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                <div class="price-info">
+                                    <p class="discount">20%</p>
+                                    <p class="normal-price">32,000원</p>
+                                    <p class="sale-price"><span>25,600</span>원</p>
+                                </div>
+                                <span class="product-state">품절</span>
+                                <div class="button-area _active">
+                                    <button>
+                                        <p>상품보기</p>
+                                    </button>
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="product rental"><!--렌탈이 경우: rental-->
+                            <div class="product-image">
+                                <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                            </div>
+                            <div class="product-info">
+                                <p class="date">2021.11.30 (월)</p>
+                                <h4>헬로비전 그린싱크(SI-818)</h4>
+                                <div class="price-info">
+                                    <p class="normal-price">월 29,900원</p>
+                                    <p class="discount">제휴카드 할인 시</p>
+                                    <p class="sale-price">월<span>9,900</span>원</p>
+                                </div>
+                                <div class="button-area _active">
+                                    <button>
+                                        <p>상품보기</p>
+                                    </button>
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                            </div>
+                            <div class="product-info">
+                                <p class="date">2021.11.30 (월)</p>
+                                <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                <div class="price-info">
+                                    <p class="sale-price"><span>25,600</span>원</p>
+                                </div>
+                                <div class="button-area _active">
+                                    <button>
+                                        <p>상품보기</p>
+                                    </button>
+                                    <button>
+                                        <p>삭제</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="scroll">
+                    <span style="height: 50%; transform: translateY(0px);"></span>
+                </div>
+            </div>
+        </main>
+
+        <!--컨텐츠 영역 : 목록이 없는 경우-->
+        <main class="empty-contents">
+            <em>찜한 상품이 없습니다.</em>
+            <p class="ic-delivery">산지직송으로 배송되는 신선한 상품을 지금 바로 만나보세요!</p>
+            <div class="button-area active _active">
+                <button class="focus">
+                    <p>쇼핑하러 가기</p>
+                </button>
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>

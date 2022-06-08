@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import 'config';
+
+html, body {    
+    height: 100%;
+}
+.container, .layer-container {
+    position: absolute;
+    width: px(1920);
+    height: px(1080);
+    overflow: hidden;
+}

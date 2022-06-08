@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>미디어커머스</title>
+</head>
+<body>
+    <div class="container home">
+
+        <!--로고-->
+        <h1 class="hellomarket-bi">
+            <img src="../../assets/images/common/hellomarket-bi.png" alt="헬로마켓로고">
+        </h1>
+
+        <!--카테고리-->
+        <aside class="category">
+            <ul class="quick-menu _active">
+                <li class="delivery">
+                    <h3>주문목록</h3>
+                </li>
+                <li class="schedule">
+                    <h3>편성표</h3>
+                </li>
+                <li class="mymenu">
+                    <h3>마이</h3>
+                </li>
+            </ul>
+            <div class="category-banner _active">
+                <div class="banner-image focus">
+                    <img src="../../assets/images/temp/img-temp-gnb-banner.png" alt="gnb렌탈배너">
+                </div>
+            </div>
+            <nav class="gnb">
+                <div class="gnb-main _active">
+                    <ul>
+                        <li class="selected">
+                            <h3>Best</h3>
+                        </li>
+                        <li>
+                            <h3>코리아세일페스타</h3>
+                        </li>
+                        <li>
+                            <h3>농산물</h3>
+                        </li>
+                        <li>
+                            <h3>축산물</h3>
+                        </li>
+                        <li>
+                            <h3>수산물</h3>
+                        </li>
+                        <li>
+                            <h3>가공식품</h3>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gnb-sub active _active">
+                    <ul>
+                        <li class="focus">
+                            <h3>전체보기</h3>
+                        </li>
+                        <li>
+                            <h3>과일</h3>
+                        </li>
+                        <li>
+                            <h3>채소</h3>
+                        </li>
+                        <li>
+                            <h3>쌀/잡곡</h3>
+                        </li>
+                        <li>
+                            <h3>할인/이벤트</h3>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!--컨텐츠 영역-->
+        <main class="contents-wrap cover-right"><!--홈 진입시 우측 그라데이션 처리:cover-right-->
+            <!--홈 진입시 컨텐츠-->
+            <div class="contents home-type">
+                <!--상품수-->
+                <p class="total-count"><span class="count">1</span> / 9,999</p>                
+                <!--영상재생시 뚫리는 배경-->
+                <div class="vod-bg">
+                    <div class="clip on"></div><!--on이되면 vod뒷판 배경제거-->
+                    <div class="clip-cover"></div>
+                </div>        
+                <div class="product-list _active">
+                    <ul>
+                        <!-- 홈:영상재생형(렌탈) -->
+                        <li class="focus">
+                            <div class="product-vod"></div>
+                            <div class="product rental"><!--렌탈인경우: rental클래스 추가-->
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>[금산인삼농협] 백제금산인삼농협이 보증하는 금산인삼</p>
+                                    <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                    <div class="price-info">
+                                        <p class="normal-price">32,000원</p>
+                                        <p class="discount">제휴카드 할인 시</p>
+                                        <p class="sale-price">월<span>25,600</span>원</p>
+                                    </div>
+                                    <span class="order-number">주문 및 상담 <em>080-447-9000</em></span>
+                                    <div class="button-area _active">
+                                        <button class="icon-button focus"><!--selected: 찜되었을 때-->
+                                            <i class="ic-favorite">찜하기</i>
+                                        </button>
+                                        <button>
+                                            <p>상담신청</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 홈:영상재생형(일반상품) -->
+                        <li>
+                            <div class="product-vod"></div>
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>[금산인삼농협] 백제금산인삼농협이 보증하는 금산인삼</p>
+                                    <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                    <div class="price-info">
+                                        <p class="discount">20%</p>
+                                        <p class="normal-price">32,000원</p>
+                                        <p class="sale-price"><span>25,600</span>원</p>
+                                    </div>
+                                    <span class="order-number">주문 및 상담 <em>080-447-9000</em></span>
+                                    <div class="button-area _active">
+                                        <button class="icon-button focus"><!--selected: 찜되었을 때-->
+                                            <i class="ic-favorite">찜하기</i>
+                                        </button>
+                                        <button>
+                                            <p>주문하기</p>
+                                        </button>
+                                        <!--풀절버튼-->
+                                        <!-- <button class="dimmed">
+                                            <p>품절</p>
+                                        </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 홈:배너형-->
+                        <li>
+                            <div class="product-banner">
+                                <img src="../../assets/images/temp/img-temp-video.png" alt="인삼">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--이전/다음 아이콘(첫화면에서는 우측화살표만 표시/좌측화살표는 좌측에 영상이있을경우에만 표시)-->
+                <i class="ic-arrow prev">이전으로</i>
+                <i class="ic-arrow next on">다음으로</i><!-- on일경우 화살표 보여짐 -->
+            </div>
+
+            <!--상품리스트 컨텐츠-->
+            <div class="contents list-type">
+                <div class="contents-header">
+                    <div class="title-area">
+                        <h3>일이삼사오육칠팔구십일이삼사오</h3>
+                        <p class="sub-title">#일이삼사오육칠팔구십일이삼사오육칠팔구십</p>
+                    </div>
+                    <div>
+                        <p class="keyguide">
+                            <span class="ic-round color-key blue"></span>최신순
+                        </p>
+                        <p class="total-count"><span class="count">1</span> / 9,999</p>      
+                    </div>
+                </div> 
+                <div class="home-banner _active">
+                    <div class="banner-image focus">
+                        <img src="../../assets/images/temp/img-temp-wide-banner.png">
+                    </div>
+                </div>
+                <div class="product-list _active">
+                    <ul>
+                        <li class="focus">
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>일이삼사오육칠팔구십일이삼사오육칠팔구</p>
+                                    <h4>일이삼사오육칠팔구십일이삼사오육칠팔구십</h4>
+                                    <span class="product-state">품절</span><!--품절일 경우-->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product rental"><!--렌탈상품일 경우: rental클래스 추가(가격정보표시 디자인이 다릅니다.)-->
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>[금산인삼농협]</p>
+                                    <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                    <div class="price-info">
+                                        <p class="discount">제휴카드 할인 시</p>
+                                        <p class="normal-price">월 32,000원</p>
+                                        <p class="sale-price">월<span>25,600</span>원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>[금산인삼농협]</p>
+                                    <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                    <div class="price-info">
+                                        <p class="discount">20%</p>
+                                        <p class="normal-price">32,000원</p>
+                                        <p class="sale-price"><span>25,600</span>원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="../../assets/images/temp/img-temp-product.png" alt="금산인삼">
+                                </div>
+                                <div class="product-info">
+                                    <p>[금산인삼농협]</p>
+                                    <h4>금산인삼(수삼) 총 500g 2종</h4>
+                                    <div class="price-info">
+                                        <p class="discount">20%</p>
+                                        <p class="normal-price">32,000원</p>
+                                        <p class="sale-price"><span>25,600</span>원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>

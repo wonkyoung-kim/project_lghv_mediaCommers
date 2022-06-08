@@ -1,0 +1,549 @@
+@charset "utf-8";
+@import 'config';
+//url
+$url-images: "../images/home/";
+//var
+$image-size: px(172);
+$border-radius: px(9);
+
+/* 상품(홈,상품리스트,플레이어에서 사용) */
+.product {
+    position: relative;
+    @include flex-items-center;
+    width: px(1273);
+    height: px(208);
+    padding: 0 px(22);
+    border-radius: $border-radius;
+    font-family: $font-bold;
+    color: $color-pure-white;
+    background-color: #2a2b3d;
+    //이미지
+    .product-image {
+        position: relative;
+        overflow: hidden;
+        width: $image-size;
+        height: $image-size;
+        margin-right: px(22);
+        border-radius: $border-radius;
+        &::before {
+            @include vs;
+            width: 100%;
+            height: 100%;
+            background-image: url("../images/common/img-thumbnail-default.png");
+            @include background-default;
+        }
+    }
+    //상품정보
+    .product-info {
+        //서브타이틀
+        > p {
+            display: inline-block;
+            width: px(845);
+            margin-bottom: px(5);
+            opacity: 0.5;
+            font: {
+                family: $font-regular;
+                size: 2.4rem;
+            }
+            vertical-align: middle;
+            @include ellipsis;
+        }
+        //메인타이틀
+        h4 {
+            width: px(651);
+            margin-bottom: px(14);
+            font-size: 3.6rem;
+            @include ellipsis;
+        }
+        //주문 번호
+        .order-number {
+            position: absolute;
+            bottom: px(39);
+            right: px(39);
+            opacity: 0.8;
+            font: {
+                family: $font-bold;
+                size: 2.4rem;
+            }
+            color: #d6d6d6;
+            em {
+                color: $color-accent;
+            }
+            & + .button-area {
+                bottom: px(94);
+            }
+        }
+        //가격정보
+        .price-info {
+            @include flex-items-center;
+            p {
+                font: {
+                    family: $font-bold;
+                    size: 3rem;
+                }
+                color: $color-sub-gray;
+            }
+            .discount {
+                margin-right: px(7);
+                font-size: 3rem;
+                color: $color-accent;
+            }
+            .normal-price {
+                position: relative;
+                margin-right: px(5);
+                padding-right: px(27);
+                font-size: 2.7rem;
+                color: #b0b0b0;
+                //가격할인 화살표아이콘
+                &::before {
+                    @include vs;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 100%;
+                    height: px(2);
+                    background-color: $color-arrow;
+                }
+                &::after {
+                    @include vs;
+                    top: 50%;
+                    left: auto;
+                    right: px(5);
+                    transform: translateY(-50%) rotate(45deg) skew(-16deg, -16deg);
+                    width: px(16);
+                    height: px(16);
+                    border-top: px(2) solid $color-arrow;
+                    border-right: px(2) solid $color-arrow;
+                }
+            }
+            .sale-price {
+                @include flex-items-center;
+                font-size: 3.3rem;
+                color: $color-orange;
+                span {
+                    font-size: 5.1rem;
+                    margin: 0 px(3);
+                }
+            }
+        }
+        //상품상태
+        .product-state {
+            position: absolute;
+            top: px(70);
+            right: px(63);
+            width: px(331);
+            margin-bottom: px(30);
+            opacity: 0.8;
+            text-align: center;
+            font: {
+                family: $font-bold;
+                size: 3.9rem;
+            }
+            color: $color-sub-light-gray;
+            & + .button-area {
+                top: px(153);
+            }
+        }
+    }
+    //렌탈인경우
+    &.rental {
+        .product-info {
+            .price-info {
+                .normal-price, .discount {
+                    margin-right: px(12);
+                }
+                .sale-price {
+                    span {
+                        margin: 0 px(4) 0 px(8);
+                    }
+                }
+            }
+        }
+    }
+    //품절인경우
+    &.sold-out {
+        .price-info {
+            opacity: 0.6;
+        }
+    }
+}
+
+/* 상품(상품상세, 주문에서 사용) */
+.product-default {
+    $product-default-width: px(535);
+    .product {
+        flex-direction: column;
+        position: absolute;
+        width: $product-default-width;
+        height: 100%;
+        padding: px(170) px(60) 0;
+        border-radius: 0;
+        background-color: $color-bg-aside;
+        &.rental {
+            .price-info {
+                margin-bottom: px(45);
+                .discount {
+                    font-size: 3.4rem;
+                }
+                .normal-price {
+                    font-size: 2.6rem;
+                }
+                .sale-price {
+                    font-size: 3.2rem;
+                    span {
+                        margin: 0 px(4);
+                        font-size: 5rem;
+                    }
+                }
+            }
+            
+        }
+    }
+    .product-image {
+        width: px(415);
+        height: px(415);
+        margin-right: 0;
+        margin-bottom: px(40);
+    }
+    .product-info {
+        position: relative;
+        width: 100%;
+        > p {
+            width: px(426);
+            margin-bottom: px(8);
+            font-size: 2.8rem;
+        }
+        h4 {
+            width: px(408);
+            height: px(105);
+            margin-bottom: px(32);
+            font-size: 3.9rem;
+            @include ellipsis($line: 2);
+        }
+        .price-info {
+            flex-wrap: wrap;
+            width: px(475);
+            margin-bottom: px(30);
+            .discount {
+                @include flex-items-center;
+                align-items: flex-end; 
+                width: 100%;
+                line-height: 1;
+                font-size: 4.5rem;
+            }
+            .normal-price {
+                font-size: 2.8rem;
+                margin-right: 0;
+                padding-right: px(18);
+            }
+            .sale-price {
+                font-size: 3.6rem;
+                span {
+                    font-size: 5.2rem;
+                    margin: 0 px(10);
+                }
+            }
+        }
+        button {
+            @include button($width: px(415), $height: px(78));
+        }
+    }
+}
+
+/* 탭메뉴 공통영역 */
+.tab-menu {
+    @include flex-items-center;
+    margin-bottom: px(42);
+    li {
+        position: relative;
+        flex: 1;
+        padding-bottom: px(34);
+        line-height: 1;
+        text-align: center;
+        font-size: 3.4rem;
+        color: $color-gray;
+        &::after {
+            @include vs;
+            top: auto;
+            bottom: 0;
+            width: 100%;
+            height: px(1,1);
+            background-color: rgba($color-pure-white, 0.11);
+        }
+        &.selected {
+            color: $color-orange;
+        }
+    }
+    &.active {
+        .focus {
+            font-family: $font-bold;
+            color: $color-primary;
+            &::after {
+                height: px(7);
+                margin-bottom: px(-3.5,-1.5);
+                background-color: $color-primary;
+            }
+        }
+    }
+}
+.tab-contents {
+    overflow: hidden;
+    height: px(911);
+    padding-right: px(44);
+    > div {
+        height: 100%;
+    }
+}
+
+/* 버튼영역 */
+.button-area {
+    display: flex;
+    button {
+        // @include flex-items-center;
+        // justify-content: center;
+        width: px(168);
+        height: px(64);
+        padding: 0 px(27);
+        border-radius: px(32);
+        box-shadow: 0 0 px(11) 0 $color-button-shadow;
+        background-color: $color-bg-button;
+        p {
+            padding-bottom: px(2);
+            font: {
+                family: $font-bold;
+                size: 2.7rem;
+            }
+            color: #eee;
+        }
+        &.dimmed {
+            background-color: $color-bg-button-dimmed;
+            p {
+                opacity: 0.4;
+            }
+            &.focus {
+                background-color: $color-bg-button-dimmed;
+            }
+        }
+        i {
+            &::before {
+                @include vs-ib;
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+                @include background-default;
+            }
+        }
+        & + button {
+            margin-left: px(12);
+        }
+    }
+    .icon-button {     
+        width: px(64);
+        height: px(64);
+        padding: 0;
+        border-radius: 50%;
+        font-size: 0;
+        i {
+            display: inline-block;
+        }
+        .ic-favorite {
+            width: px(34);
+            height: px(32);
+            &::before {
+                background-image: url($url-images + 'ic-home-favorite.png');
+            }
+        }
+        .ic-detail {
+            width: px(38);
+            height: px(31);
+            margin-left: px(4,3);
+            &::before {
+                background-image: url($url-images + 'ic-home-detail.png');
+            }
+        }
+        &.selected {
+            .ic-favorite {
+                width: px(32);
+                height: px(29);
+                &::before {
+                    background-image: url($url-images + 'ic-home-favorite-selected.png');
+                }
+            }
+        }
+    }
+    &.active {
+        .focus {
+            background-color: $color-primary;
+            .ic-detail {
+                &::before {
+                    background-image: url($url-images + 'ic-home-detail-focus.png');
+                }
+            }
+        }
+    }
+}
+
+/* 리모콘 키가이드 */
+.keyguide {
+    display: flex;
+    margin-right: px(16);
+    line-height: px(34);
+    font: {
+        family: $font-bold;
+        size: 2.1rem;
+    }
+    color: rgba($color-pure-white, 0.7);
+    .ic-round {
+        @include ic-round;
+        margin-right: px(8);
+        &.color-key {
+            align-items: center;
+            &::after {
+                $colorkey-size: px(18);
+                @include vs-ib;
+                width: $colorkey-size;
+                height: $colorkey-size;
+                border-radius: calc(#{$colorkey-size} / 2);
+            }
+            &.blue {
+                &::after {
+                    background-color:$color-blue;
+                }
+            }
+        }
+    }
+}
+
+/* page경로 */
+.path {
+    @include flex-items-center;
+    position: absolute;
+    left: px(60);
+    top: px(55);
+    z-index: 1;
+    opacity: 0.8;
+    font-size: 2.4rem;
+    span {
+        position: relative;
+        margin-right: px(34);
+        font-family: $font-bold;
+        color: $color-light-gray;
+        &::after {
+            @include vs;
+            left: unset;
+            right: px(-24);
+            content: '>';
+        }
+        & + span:last-child {
+            color: $color-accent;
+            margin-right: 0;
+            &::after {
+                content: none;
+            }
+        }
+    }
+}
+
+/* 검색필드 */
+.input-field {
+    @include flex-items-center;
+    justify-content: center;
+    label {
+        margin-right: px(20);
+        font: {
+            family: $font-bold;
+            size: 2.7rem;
+        }
+    }
+    .input-text {
+        $height: px(84);
+        position: relative;
+        width: px(783);
+        height: $height;
+        line-height: calc(#{$height} - #{px(5)});
+        border-radius: px(8);
+        color: $color-black;
+        .placeholder {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            width: 100%;
+            padding-left: px(27);
+            line-height: $height;
+            text-align: left;
+            font-size: 3rem;
+            color: #999;
+            &.on {
+                display: block;
+            }
+        }
+        .input-text-wrap {
+            @include flex-items-center;
+            padding: 0 px(20);
+            box-shadow: inset 0 0 0 px(3) $color-input-border;
+            border-radius: px(7);
+            height: 100%;
+            span {
+                font: {
+                    family: $font-bold;
+                    size: 3rem;
+                }
+            }
+        }
+        &.active {
+            .focus {
+                box-shadow: none;
+                &::after {
+                    @include focus-border;
+                    box-shadow: 0 0 0 px(6) $color-primary;
+                }
+            }
+        }
+    }
+    ul {
+        li {
+            @include flex-items-center;
+            height: px(84);
+            margin-top: px(15);
+            &:first-child {
+                margin-top: 0;
+            }
+            label {
+                display: block;
+                min-width: px(130);
+                margin-right: px(53);
+                text-align: left;
+                font-size: 3.3rem;
+            }
+            .input-box {
+                @include flex-items-center;
+            }
+            .input-text {
+                .placeholder {
+                    padding-left: 0;
+                    font-size: 2.7rem;
+                }
+                .input-text-wrap {
+                    justify-content: center;
+                    span {
+                        font-size: 2.7rem;
+                        color: $color-sub-dark-gray;
+                    }
+                }
+                &.active {
+                    .focus {
+                        span {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+/* 비밀번호 입력 */
+.input-password {
+    @include input-password;
+}

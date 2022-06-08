@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>미디어커머스</title>
+</head>
+<body>
+    <div class="popup-container mobile-popup">
+        
+        <!--렌탈상담신청 > 휴대번호 입력 팝업-->
+        <div class="popup middle">
+            <div class="popup-header">
+                <h3>상담신청</h3>
+            </div>
+            <div class="popup-body text-center">
+                <p class="body-text">지금 보고 계신 상품을 안내 드리기 위해 전문 상담사가 연락을 드릴 예정입니다</p>
+                <p class="sub-text">※상품 가입 상담에만 사용되며, 보유기간 이후 안전하게 파기 됩니다</p>
+                <p class="essential">필수 입력란</p>
+                <div class="input-field">
+                    <label class="essential">휴대폰 번호</label>
+                    <div class="input-text active _active">
+                        <span class="placeholder on">-없이 휴대폰 번호만 입력하세요</span>
+                        <p class="input-text-wrap focus">
+                            <span>0</span>
+                            <span>0</span>
+                            <span>0</span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </p>
+                    </div>
+                </div>
+                <p class="error-message on">잘못된 휴대폰 번호 입니다. 다시 입력해 주세요.</p><!--휴대폰번호 잘못입력시 노출되는 문구: on클래스 제거시 텍스트 안보이게 처리-->
+            </div>
+            <div class="popup-footer _active">
+                <button class="popup-button dimmed focus">전화 상담 신청</button><!--dimmed: 비활성화 상태(미입력, 잘못된 번호 입력시에는 비활성화 상태)-->
+                <button class="popup-button">취소</button>
+            </div>
+        </div>
+
+        <!--모바일로 구매하기 > 휴대폰 번호 입력팝업-->
+        <div class="popup middle">
+            <div class="popup-header">
+                <h3>배송지 등록</h3>
+            </div>
+            <div class="popup-body text-center">
+                <p class="body-text">배송지를 등록하실 수 있는 모바일 URL을 보내드립니다.</p>
+                <p class="sub-text">※휴대폰 번호는 URL 발송에만 사용되며, 보유기간 이후 안전하게 파기 됩니다.</p>
+                <p class="essential">필수 입력란</p>
+                <div class="input-field">
+                    <label class="essential">휴대폰 번호</label>
+                    <div class="input-text active _active">
+                        <span class="placeholder on">-없이 휴대폰 번호만 입력하세요</span>
+                        <p class="input-text-wrap focus">
+                            <span>0</span>
+                            <span>0</span>
+                            <span>0</span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </p>
+                    </div>
+                </div>
+                <p class="error-message on">잘못된 휴대폰 번호 입니다. 다시 입력해 주세요.</p><!--잘못입력시 노출되는 문구: on클래스 제거시 텍스트 안보이게 처리-->
+            </div>
+            <div class="popup-footer _active">
+                <button class="popup-button dimmed focus">확인</button><!--dimmed: 비활성화 상태(미입력, 잘못된 번호 입력시에는 비활성화 상태)-->
+                <button class="popup-button">취소</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

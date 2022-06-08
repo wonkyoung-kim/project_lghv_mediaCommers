@@ -1,0 +1,753 @@
+@charset "UTF-8";
+/* variables */
+/* functions */
+/* mixins */
+/* 포커스라인 */
+/* vs */
+/* background-default */
+/* flex-items-center */
+/* position-center */
+/* 검색필드창 */
+/* 비밀번호입력창 */
+/* button */
+/* 스크롤 */
+/* 리모콘 키가이드 */
+/* 툴팁 */
+/* 별점 별 */
+/* ic-tag */
+/* select-box */
+/* 주문하기 */
+.purchase .product-default .product {
+  padding: 70px 40px 0;
+}
+
+.purchase .product-default .product-image {
+  margin-bottom: 35px;
+}
+
+.purchase .product-default .product-info h4 {
+  margin-bottom: 60px;
+}
+
+.purchase .purchase-step {
+  width: 100%;
+  height: 100%;
+  padding-left: 356px;
+  background-color: #14151e;
+}
+
+.purchase .purchase-step > div {
+  width: 842px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 63px;
+}
+
+.purchase .step-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.purchase .step-title h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 218px;
+  height: 38px;
+  font-size: 2.6rem;
+  color: rgba(238, 238, 238, 0.7);
+  background-color: #2a2c3e;
+}
+
+.purchase .contents {
+  padding-left: 8px;
+}
+
+.purchase .contents ul {
+  display: flex;
+  flex-direction: column;
+  height: 398px;
+}
+
+.purchase .contents ul li {
+  display: flex;
+  align-items: center;
+  align-items: baseline;
+  margin-bottom: 36px;
+}
+
+.purchase .contents ul li .label {
+  width: 94px;
+  margin-right: 57px;
+  font-size: 3.7rem;
+}
+
+.purchase .contents ul li > div {
+  width: 583px;
+}
+
+.purchase .contents ul li p {
+  font-size: 3.3rem;
+}
+
+.purchase .contents ul li .button-area {
+  margin-left: 0;
+}
+
+.purchase .contents ul li .button-area button {
+  width: 140px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.purchase .contents ul li .button-area button p, .purchase .contents ul li .button-area button i {
+  padding-bottom: 0;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.purchase .contents ul li .button-area button i::before {
+  display: inline-block;
+  content: '';
+  margin-right: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase .contents ul li .button-area button p, .purchase .contents ul li .button-area button i {
+  font-size: 2.4rem;
+}
+
+.purchase .contents ul li .button-area button i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purchase .contents ul li .button-area button i.ic-change::before {
+  width: 15px;
+  height: 15px;
+  background-image: url("../images/purchase/ic-purchase-change.png");
+}
+
+.purchase .contents ul li .button-area button i.ic-plus::before {
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/purchase/ic-purchase-plus.png");
+}
+
+.purchase .contents ul li .button-area button i.ic-card::before {
+  width: 23px;
+  height: 15px;
+  background-image: url("../images/purchase/ic-purchase-card.png");
+}
+
+.purchase .contents ul li .button-area button + button {
+  margin-left: 10px;
+}
+
+.purchase .contents ul li .button-area button.view-mobile {
+  width: 176px;
+}
+
+.purchase .contents ul li .button-area button.bring-info {
+  width: 189px;
+}
+
+.purchase .contents ul li .button-area.active .focus .ic-card::before {
+  background-image: url("../images/purchase/ic-purchase-card-focus.png");
+}
+
+.purchase .contents .total {
+  display: flex;
+  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 553px;
+  margin-left: 153px;
+  margin-bottom: 20px;
+  font-size: 2.7rem;
+}
+
+.purchase .contents .total .price span {
+  font-size: 3.3rem;
+  color: #fd8a2c;
+}
+
+.purchase .contents .total .price span em {
+  padding: 0 3px 0 9px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 5.3rem;
+}
+
+.purchase .button-area {
+  margin-left: 153px;
+}
+
+.purchase .button-area button {
+  width: 553px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.purchase .button-area button p, .purchase .button-area button i {
+  padding-bottom: 0;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.purchase .button-area button i::before {
+  display: inline-block;
+  content: '';
+  margin-right: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase .button-area button + button {
+  margin-left: 15px;
+}
+
+.purchase .purchase-step1 .step-title h3:nth-child(1) {
+  z-index: 1;
+  width: 642px;
+  height: 46px;
+  font-size: 3.1rem;
+  color: #eee;
+  background-color: unset;
+  background-image: url("../images/purchase/ic-purchase-step1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase .purchase-step1 .step-title h3:nth-child(2) {
+  margin-left: -19px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .product-name {
+  margin-bottom: 29px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .product-name h4 {
+  width: 366px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.purchase .purchase-step1 .delivery-info-list .product-name > div {
+  display: flex;
+  align-items: center;
+}
+
+.purchase .purchase-step1 .delivery-info-list .product-name .button-area {
+  margin-left: 17px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .product-name .button-area button {
+  width: 155px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info {
+  margin-bottom: 35px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info > div > p {
+  margin-bottom: 20px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info .phone-number {
+  position: relative;
+  margin-left: 46px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info .phone-number::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 22px;
+  margin-left: -26px;
+  background-color: rgba(216, 216, 216, 0.5);
+}
+
+.purchase .purchase-step1 .delivery-info-list .address-info .address {
+  font-size: 3rem;
+}
+
+.purchase .purchase-step1 .delivery-info-list .delivery-charge {
+  margin-bottom: 58px;
+}
+
+.purchase .purchase-step1 .delivery-info-list .delivery-charge p {
+  font-size: 3rem;
+}
+
+.purchase .purchase-step1 .delivery-info-list .delivery-charge p.sub-text {
+  margin-top: 13px;
+  font-size: 2.7rem;
+  color: rgba(169, 169, 169, 0.6);
+}
+
+.purchase .purchase-step2 .step-title h3:nth-child(2) {
+  z-index: 1;
+  width: 635px;
+  height: 46px;
+  font-size: 3.1rem;
+  color: #eee;
+  background-color: unset;
+  background-image: url("../images/purchase/ic-purchase-step2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase .purchase-step2 .step-title h3:nth-child(1) {
+  margin-right: -19px;
+}
+
+.purchase .purchase-step2 .payment-info-list .card-payment {
+  margin-bottom: 44px;
+}
+
+.purchase .purchase-step2 .payment-info-list .card-payment div > p {
+  margin-bottom: 20px;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment {
+  margin-bottom: 114px;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment button {
+  width: 322px;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box {
+  position: relative;
+  width: 325px;
+  margin-bottom: 20px;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select {
+  position: relative;
+  z-index: 3;
+  width: 325px;
+  height: 45px;
+  padding: 0 13px;
+  border-radius: 4px;
+  text-align: left;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.3rem;
+  background-color: #2b2c34;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  left: auto;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 19px;
+  height: 12px;
+  background-image: url("../images/common/ic-arrow.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  max-height: 204px;
+  margin-top: -45px;
+  padding-top: 60px;
+  border-radius: 5px;
+  background-color: #676c84;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option.bottom-cover::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #676c84);
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option li {
+  position: relative;
+  width: 281px;
+  padding: 0 13px;
+  margin-bottom: 14px;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option li p {
+  font-size: 3rem;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option li.focus::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  margin-top: -10px;
+  border-radius: 5px;
+  background-color: #e50914;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option li.focus p {
+  position: relative;
+  z-index: 2;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option .scroll {
+  position: absolute;
+  top: 62px;
+  right: 20px;
+  width: 4px;
+  height: 144px;
+  border-radius: calc(4px / 2);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  background-color: unset;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option .scroll span {
+  display: inline-block;
+  width: 100%;
+  border-radius: calc(4px / 2);
+  background-color: #a9a9a9;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box.active .focus.select {
+  background-color: #e50914;
+}
+
+.purchase .purchase-step2 .payment-info-list .month-payment .select-box .select-option {
+  display: none;
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div > p {
+  margin-bottom: 41px;
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div .payment-info {
+  width: 457px;
+  margin-bottom: 20px;
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div .payment-info p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 2.7rem;
+  color: rgba(255, 255, 255, 0.83);
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div .payment-info p span {
+  margin-left: auto;
+  font-size: 3rem;
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div .payment-info p:last-child {
+  margin-bottom: 0;
+}
+
+.purchase .purchase-step2 .payment-info-list .bill-payment > div .add-exp p {
+  line-height: 1.5;
+  font-size: 2.6rem;
+  color: #a9a9a9;
+}
+
+.purchase .purchase-step2 .button-area button {
+  width: 270px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.purchase .purchase-step2 .button-area button p, .purchase .purchase-step2 .button-area button i {
+  padding-bottom: 0;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.purchase .purchase-step2 .button-area button i::before {
+  display: inline-block;
+  content: '';
+  margin-right: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 주문완료 */
+.purchase-complet {
+  background-color: #14151e;
+}
+
+.purchase-complet .purchase-info {
+  width: 907px;
+  height: 608px;
+  margin: 0 auto;
+  padding-top: 80px;
+  background-image: url("../images/purchase/img-purchase-bill.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: center 17px;
+}
+
+.purchase-complet .purchase-header {
+  position: relative;
+  width: 746px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.purchase-complet .purchase-header::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.purchase-complet .purchase-header p {
+  margin-bottom: 13px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 4.5rem;
+}
+
+.purchase-complet .purchase-header p.complet-message {
+  margin-bottom: 0;
+  font-family: "Yoon Gothic 700 50", "Yoon Gothic 750", "YoonGothicPro750", "Yoon 윤고딕 750";
+  font-size: 2.7rem;
+}
+
+.purchase-complet .purchase-header p.complet-message::before {
+  display: inline-block;
+  content: '';
+  width: 31px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-image: url("../images/purchase/ic-purchase-delivery.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase-complet .contents {
+  width: 746px;
+  margin: 0 auto;
+  padding-top: 43px;
+}
+
+.purchase-complet .contents .purchase-info-list {
+  padding: 0 16px;
+}
+
+.purchase-complet .contents .purchase-info-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.purchase-complet .contents .purchase-info-list li .label {
+  align-self: flex-start;
+  width: 70px;
+  font-size: 2.7rem;
+}
+
+.purchase-complet .contents .purchase-info-list li p {
+  width: 591px;
+  font-size: 3rem;
+}
+
+.purchase-complet .contents .purchase-info-list .order-number {
+  margin-bottom: 28px;
+}
+
+.purchase-complet .contents .purchase-info-list .order-product {
+  margin-bottom: 20px;
+}
+
+.purchase-complet .contents .purchase-info-list .order-product h4 {
+  line-height: 30px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.purchase-complet .contents .purchase-info-list .order-product p {
+  line-height: 30px;
+  font-size: 2.7rem;
+}
+
+.purchase-complet .contents .purchase-info-list .order-product p span {
+  position: relative;
+  margin-left: 30px;
+}
+
+.purchase-complet .contents .purchase-info-list .order-product p span::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  margin-left: -16px;
+  background-color: #eee;
+}
+
+.purchase-complet .contents .purchase-info-list .address-info .name, .purchase-complet .contents .purchase-info-list .address-info .phone-number {
+  display: inline-block;
+  width: auto;
+  margin-bottom: 13px;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+}
+
+.purchase-complet .contents .purchase-info-list .address-info .phone-number {
+  position: relative;
+  margin-left: 30px;
+}
+
+.purchase-complet .contents .purchase-info-list .address-info .phone-number::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  margin-left: -16px;
+  background-color: #eee;
+}
+
+.purchase-complet .contents .purchase-info-list .address-info .address {
+  height: 44px;
+  font-size: 2.7rem;
+  overflow: hidden;
+  display: -webkit-box;
+  white-space: normal;
+  /* autoprefixer: ignore next */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.purchase-complet .contents .purchase-info-list .total {
+  position: relative;
+  margin-top: 71px;
+}
+
+.purchase-complet .contents .purchase-info-list .total::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  left: -17px;
+  width: 746px;
+  height: 2px;
+  margin-top: -31px;
+  background-image: url("../images/purchase/img-purchase-dash-line.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase-complet .contents .purchase-info-list .total .label {
+  align-self: center;
+}
+
+.purchase-complet .contents .purchase-info-list .total .price {
+  color: #fd8a2c;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.8rem;
+}
+
+.purchase-complet .contents .purchase-info-list .total .price span {
+  margin-left: 6px;
+  font-size: 2.8rem;
+}
+
+.purchase-complet .contents .purchase-info-list .total .price.bill-price span {
+  color: #a9a9a9;
+}
+
+.purchase-complet .button-area {
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.purchase-complet .button-area button {
+  width: 200px;
+  height: 59px;
+  line-height: 59px;
+  border-radius: 5px;
+}
+
+.purchase-complet .button-area button p, .purchase-complet .button-area button i {
+  padding-bottom: 0;
+  font-family: "Yoon Gothic 700 70", "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3rem;
+}
+
+.purchase-complet .button-area button i::before {
+  display: inline-block;
+  content: '';
+  margin-right: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purchase-complet .button-area button + button {
+  margin-left: 15px;
+}
